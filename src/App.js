@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import "./App.css";
+import IntroPage from "./pages/intro";
+import MenuGame from "./pages/menu-game";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+
+const App = props => (
+  <BrowserRouter>
+    <div id="margen">
+      <Route exact path="/" component={IntroPage} />
+      <Route exact path="/menu-game" component={MenuGame} />
     </div>
-  );
-}
+  </BrowserRouter>
+);
+
 
 export default App;

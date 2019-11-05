@@ -1,5 +1,16 @@
+body {
+  text-align: center;
+  background-image: url('./assets/image/background.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
 .App {
   text-align: center;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -19,4 +30,32 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.button_radius {border-radius: 50%;}
+
+.button {
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.content-menu {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap-reverse;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: space-around;
+}
+
+.top-20px {
+  margin-top: 500px;
 }

@@ -1,0 +1,12 @@
+.vowel {
+
+ /* background: linear-gradient(#e66465, #ffff);  */
+ background: linear-gradient(
+    #e66465,
+    #ffff
+  );
+  font-size: 12vw;
+  width: 12vw;
+  height: 14vw;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
