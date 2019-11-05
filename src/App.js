@@ -4,17 +4,18 @@ import "./App.css";
 import IntroPage from "./pages/intro";
 import MenuGame from "./pages/menu-game";
 
-
-
-
 const App = props => (
-  <BrowserRouter>
-    <div id="margen">
-      <Route exact path="/" component={IntroPage} />
-      <Route exact path="/menu-game" component={MenuGame} />
+  <React.Fragment>
+    <BrowserRouter>
+      <div id="margen">
+        <Route exact path="/" component={IntroPage} />
+        <Route exact path="/menu-game" component={MenuGame} />
+      </div>
+    </BrowserRouter>
+    <div className="footer-copyright">
+        &copy; {new Date().getFullYear()} <b>YOLANDA BARRERA y XIMENA CABALLERO</b>
     </div>
-  </BrowserRouter>
+  </React.Fragment>
 );
-
 
 export default App;

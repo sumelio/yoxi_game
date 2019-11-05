@@ -11,11 +11,11 @@
     border:10px solid #cfdcec;
     overflow:hidden;
           
-    background: #4679BD; 
+    background: #f77676; 
     box-shadow: 0 0 3px gray;
   }
   .round-button-circle:hover {
-    background:#30588e;
+    background:#ef4f4f;
   }
   .round-button a {
     display:block;

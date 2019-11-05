@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.arrow-navigation {
+  width: 12vw;
+  height: 14vw;
+}

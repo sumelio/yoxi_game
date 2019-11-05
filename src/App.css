@@ -59,3 +59,8 @@ body {
 .top-20px {
   margin-top: 500px;
 }
+
+.footer-copyright {
+  margin-top: 30px;
+  background-color: deepskyblue;
+}
