@@ -17,10 +17,35 @@ code {
 }
 
 .arrowNext {
-  width: 12vw;
-  height: 14vw;
+  width: 10vw;
+  height: 10vw;
+  transition: width 2s;
 }
 
 .yoxi {
-  max-width: 30vw;
+  height: 30vw;
+}
+
+.yoxi-vowel {
+  width: 10vw;
+  height: 10vw;
+  transition: width 1s;
+}
+.content {
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.content-menu-item {
+  width: 10vw;
+  height: 10vw;
+}
+
+.content-menu-item:hover img.arrowNext {
+  width: 14vw;
+}
+
+.content-menu-item:hover img.yoxi-vowel {
+  width: 10.5vw;
 }

@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 
-import './index.css'
+import "./index.css";
 
 class Vowel extends Component {
   render() {
     return (
-      <div className="vowel">
-        <div >
-            {this.props.label}
-        </div>
+      <div className="content-menu-item">
+        <img src={this.props.vowel} className="yoxi-vowel" alt="a" />
       </div>
     );
   }
