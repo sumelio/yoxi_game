@@ -1,0 +1,57 @@
+import React, { Component } from "react";
+import "./index.css";
+
+class StuffAudio extends Component {
+  state = {
+    isPlaying: false,
+    firstVowel: 'red-vowel'
+  };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.props.text && 
+      document.getElementById("first-vowel").classList.add("red-vowel-turn")
+    }, 100)
+  }
+
+  handleOnMouseOver = () => {
+    document.getElementById(this.props.id).play();
+  };
+
+  render() {
+    return (
+      <div>
+        <div>
+          <img
+            onClick={this.handleOnMouseOver}
+            className={`stuff-image-${this.props.size}`}
+            src={this.props.image}
+            alt={this.props.alt}
+          />
+        </div>
+        
+        {this.props.text && (
+          <div className="word">
+            <img className={this.state.firstVowel}
+              id="first-vowel"
+            onClick={this.handleOnMouseOver}
+            src={this.props.firstVowel}
+              alt={this.props.alt}
+              
+          />
+            <img
+              onClick={this.handleOnMouseOver}
+              src={this.props.text}
+              alt={this.props.alt}
+            />
+            </div>          )}
+        <audio id={this.props.id} name={this.props.id}>
+          <source src={this.props.audio} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    );
+  }
+}
+
+export default StuffAudio;

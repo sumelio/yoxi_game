@@ -20,3 +20,11 @@ code {
 .vowel-start {
   margin-top: 20px;
 }
+.content-start-vowel-stauff {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	align-content: space-around;
+}

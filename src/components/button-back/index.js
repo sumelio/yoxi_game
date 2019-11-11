@@ -19,7 +19,7 @@ class ButtonBack extends Component {
       this.setState(() => ({
         toDashboard: true
       }));
-    }, 0);
+    }, 100);
   };
 
   render() {

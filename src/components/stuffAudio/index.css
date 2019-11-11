@@ -1,0 +1,58 @@
+.stuff-image {
+  width: 10rem;
+  height: 10rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition-duration: 1.5s
+}
+.stuff-image-10px {
+  width: 10rem;
+  height: 10rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition-duration: 1.5s
+}
+
+.stuff-image-18px {
+  width: 18rem;
+  height: 18rem;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition-duration: 1.5s
+}
+
+.stuff-image:hover  {
+  width: 10.5rem;
+  height: 12rem;
+  cursor: pointer;
+}
+
+.stuff-image-10px:hover {
+  width: 12.5rem;
+  cursor: pointer;
+}
+
+
+.stuff-image-18px:hover {
+  width: 19.5rem;
+  cursor: pointer;
+}
+.word {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  align-content: space-around;
+  margin-bottom: 30px;
+}
+
+.red-vowel {
+ transition: 2s;
+ width: 0;
+}
+.red-vowel-turn {
+  width: 60px;
+  transform: rotate(0deg);
+
+}
