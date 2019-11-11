@@ -1,0 +1,6 @@
+
+.arrowNext {
+    width: 10vw;
+    min-height: 4rem;
+    transition: width 2s;
+  }

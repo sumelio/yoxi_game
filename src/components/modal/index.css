@@ -11,7 +11,9 @@
   height: 12rem;
   cursor: pointer;
 }
-
+.modal {
+  max-height: 80vh;
+}
 .modal > .close {
   cursor: pointer;
   position: absolute;

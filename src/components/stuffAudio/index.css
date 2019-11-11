@@ -1,16 +1,18 @@
 .stuff-image {
   width: 10rem;
+  max-height: 60vh;
   height: 10rem;
   cursor: pointer;
   margin: 0.5rem;
-  transition-duration: 1.5s
+  transition-duration: 1.5s;
 }
 .stuff-image-10px {
   width: 10rem;
   height: 10rem;
+  max-height: 60vh;
   cursor: pointer;
   margin: 0.5rem;
-  transition-duration: 1.5s
+  transition-duration: 1.5s;
 }
 
 .stuff-image-18px {
@@ -18,10 +20,16 @@
   height: 18rem;
   cursor: pointer;
   margin: 0.5rem;
-  transition-duration: 1.5s
+  transition-duration: 1.5s;
 }
 
-.stuff-image:hover  {
+@media screen and (max-height: 300px) {
+  .stuff-image-18px {
+    max-height: 50vh;
+  }
+}
+
+.stuff-image:hover {
   width: 10.5rem;
   height: 12rem;
   cursor: pointer;
@@ -32,27 +40,55 @@
   cursor: pointer;
 }
 
-
 .stuff-image-18px:hover {
   width: 19.5rem;
   cursor: pointer;
 }
 .word {
   display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   align-content: space-around;
   margin-bottom: 30px;
 }
+@media screen and (max-height: 300px) {
+  .stuff-image-18px {
+  }
+  .word {
+    margin-bottom: 1px;
+    max-height: 15vh;
+  }
+  img {
+    max-height: 10vh;
+    max-width: 20vw;
+  }
+}
+
+.text-vowel {
+  transition: 2s;
+}
 
 .red-vowel {
- transition: 2s;
- width: 0;
+  transition: 2s;
+  width: 0;
 }
 .red-vowel-turn {
   width: 60px;
   transform: rotate(0deg);
+}
 
+@media screen and (max-height: 300px) {
+  .text-vowel {
+    max-height: 15vh;
+  }
+
+  .red-vowel {
+    max-height: 15vh;
+    max-width: 5vw;
+  }
+  .red-vowel-turn {
+    max-width: 5vw;
+  }
 }

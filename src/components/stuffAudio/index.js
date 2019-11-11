@@ -4,7 +4,7 @@ import "./index.css";
 class StuffAudio extends Component {
   state = {
     isPlaying: false,
-    firstVowel: 'red-vowel'
+    vowel: 'vowel'
   };
 
   componentDidMount() {
@@ -32,14 +32,14 @@ class StuffAudio extends Component {
         
         {this.props.text && (
           <div className="word">
-            <img className={this.state.firstVowel}
+            <img className='red-vowel'
               id="first-vowel"
             onClick={this.handleOnMouseOver}
             src={this.props.firstVowel}
               alt={this.props.alt}
               
           />
-            <img
+            <img className='text-vowel'
               onClick={this.handleOnMouseOver}
               src={this.props.text}
               alt={this.props.alt}
