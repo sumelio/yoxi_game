@@ -9,6 +9,7 @@ import e from "../../assets/image/e.png";
 import i from "../../assets/image/i.png";
 import o from "../../assets/image/o.png";
 import u from "../../assets/image/u.png";
+import yoxi from "../../assets/image/yoxi.png";
 
 import RainBow from "../../assets/image/rainbow.png";
 import RainBowAudio from "../../assets/sound/rainbow.mp3";
@@ -27,6 +28,8 @@ import firstO from "../../assets/image/red-o.png";
 
 import Elephan from "../../assets/image/elephan.png";
 import ElephanAudio from "../../assets/sound/elephan.mp3";
+import textElephan from "../../assets/image/text-elephan.png";
+import firstE from "../../assets/image/red-e.png";
 
 import ModalVowel from "../../components/modal-vowel";
 
@@ -44,19 +47,16 @@ class VowelStart extends Component {
     }
   }
 
+  handleOnMouseOver = (event) => {
+    document.getElementById("VowelStartAudioId").play();
+  }
+
   render() {
     return (
       <React.Fragment>
         <div className="content-menu vowel-start-time">
-          <h1>VOCAL INICIAL</h1>
-        </div>
-        <div className="content-menu vowel-start">
-          <ButtonBack go="/menu-game" />
-          <Vowel vowel={a} />
-          <Vowel vowel={e} />
-          <Vowel vowel={i} />
-          <Vowel vowel={o} />
-          <Vowel vowel={u} />
+        <h1><img onClick={this.handleOnMouseOver} src={yoxi} className="yoxi-vowel-start" alt="Yoxi" />
+          VOCAL INICIAL</h1>
         </div>
         <div className="content-start-vowel-stauff">
           <ModalVowel
@@ -90,9 +90,17 @@ class VowelStart extends Component {
             image={Elephan}
             audio={ElephanAudio}
             alt="Elefante"
-            text={textBear}
-            firstVowel={firstO}
+            text={textElephan}
+            firstVowel={firstE}
           />
+        </div>
+        <div className="content-menu vowel-start">
+          <ButtonBack go="/menu-game" />
+          <Vowel vowel={a} />
+          <Vowel vowel={e} />
+          <Vowel vowel={i} />
+          <Vowel vowel={o} />
+          <Vowel vowel={u} />
         </div>
         <audio id="VowelStartAudioId" name="VowelStartAudioId">
           <source src={VowelStartAudio} type="audio/mpeg" />

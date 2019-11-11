@@ -17,8 +17,9 @@ code {
 }
 
 
-.yoxi {
-  height: 30vw;
+.yoxi-intro {
+  height: 20rem;
+  cursor: pointer;
 }
 
 .yoxi-vowel {

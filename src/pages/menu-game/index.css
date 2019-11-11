@@ -16,3 +16,8 @@ code {
   width: 12vw;
   height: 14vw;
 }
+
+.yoxi-menu {
+  height: 20rem;
+  cursor: pointer;
+}

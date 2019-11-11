@@ -54,8 +54,6 @@
   margin-bottom: 30px;
 }
 @media screen and (max-height: 300px) {
-  .stuff-image-18px {
-  }
   .word {
     margin-bottom: 1px;
     max-height: 15vh;
@@ -81,14 +79,14 @@
 
 @media screen and (max-height: 300px) {
   .text-vowel {
-    max-height: 15vh;
+    max-height: 4rem;
   }
 
   .red-vowel {
-    max-height: 15vh;
-    max-width: 5vw;
+    max-height: 4rem;
+    max-width: 3rem;
   }
   .red-vowel-turn {
-    max-width: 5vw;
+    max-width: 4rem;
   }
 }
