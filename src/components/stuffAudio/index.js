@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
+import Win from "../../assets/sound/coin.mp3";
 
 class StuffAudio extends Component {
   state = {
@@ -15,6 +16,7 @@ class StuffAudio extends Component {
   }
 
   handleOnMouseOver = () => {
+    document.getElementById('win').play();
     document.getElementById(this.props.id).play();
   };
 
@@ -47,6 +49,10 @@ class StuffAudio extends Component {
             </div>          )}
         <audio id={this.props.id} name={this.props.id}>
           <source src={this.props.audio} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id='win' name='win'>
+          <source src={Win} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       </div>

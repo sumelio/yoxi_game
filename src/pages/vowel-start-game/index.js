@@ -41,14 +41,15 @@ import ButtonNext from "../../components/button-next";
 import ModalVowel from "../../components/modal-vowel";
 
 class VowelStartGame extends Component {
+  
   state = {
-    vowels: [ 
-        {img: a, sound: 'VowelStartGameAudioA'}, 
-        {img: e, sound: 'VowelStartGameAudioE'},
-        {img: i, sound: 'VowelStartGameAudioI'},
-        {img: o, sound: 'VowelStartGameAudioO'},
-        {img: u, sound: 'VowelStartGameAudioU'}
-      ]
+    vowels: [
+      { img: a, sound: 'VowelStartGameAudioA', start: 'a' },
+      { img: e, sound: 'VowelStartGameAudioE', start: 'e'  },
+      { img: i, sound: 'VowelStartGameAudioI', start: 'i'  },
+      { img: o, sound: 'VowelStartGameAudioO', start: 'o'  },
+      { img: u, sound: 'VowelStartGameAudioU', start: 'u'  }
+    ]
   };
 
   constructor() {
@@ -56,7 +57,7 @@ class VowelStartGame extends Component {
     this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
     this.getNext = this.getNext.bind(this);
   }
-  componentDidMount() {}
+  componentDidMount() { }
 
   handleOnMouseOver = event => {
     document.getElementById("VowelStartAudioId").play();
@@ -79,7 +80,7 @@ class VowelStartGame extends Component {
       setTimeout(() => {
         document.getElementById(currentVowel.sound).play();
       }, 500)
-      
+
     }
     return (
       <React.Fragment>
@@ -87,13 +88,16 @@ class VowelStartGame extends Component {
           {currentVowel && <Vowel vowel={currentVowel.img} />}
         </div>
 
-        <ModalVowel
+        <div className="start-game-options">
+          <ModalVowel
             id={RainBow}
             image={RainBow}
             audio={RainBowAudio}
             alt="Arcoíris"
             text={textArcoiris}
             firstVowel={firstA}
+            correct={currentVowel.start}
+            vowel='a'
           />
           <ModalVowel
             id={Magnet}
@@ -102,6 +106,8 @@ class VowelStartGame extends Component {
             alt="Iman"
             text={textIman}
             firstVowel={firstI}
+            correct={currentVowel.start}
+            vowel='i'
           />
 
           <ModalVowel
@@ -111,6 +117,8 @@ class VowelStartGame extends Component {
             alt="Oso"
             text={textBear}
             firstVowel={firstO}
+            correct={currentVowel.start}
+            vowel='o'
           />
 
           <ModalVowel
@@ -120,8 +128,11 @@ class VowelStartGame extends Component {
             alt="Elefante"
             text={textElephan}
             firstVowel={firstE}
+            correct={currentVowel.start}
+            vowel='u'
           />
-                  <div className="content-menu vowel-start">
+        </div>
+        <div className="content-menu vowel-start">
           <ButtonBack go="/vowel-start" />
           <ButtonNext go="/vowel-start-game" />
         </div>
