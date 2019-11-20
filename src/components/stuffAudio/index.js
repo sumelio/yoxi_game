@@ -28,6 +28,7 @@ class StuffAudio extends Component {
           showImg: FailImg
        })
         document.getElementById('fail').play();
+        document.getElementById('stuffImg').src =  this.props.showImg;
       
       } , 1000)
       }
@@ -43,6 +44,7 @@ class StuffAudio extends Component {
         <div>
           { !this.props.showImg && <img
             onClick={this.handleOnMouseOver}
+            id="stuffImg"
             className={`stuff-image-${this.props.size}`}
             src={this.props.image}
             alt={this.props.alt}
