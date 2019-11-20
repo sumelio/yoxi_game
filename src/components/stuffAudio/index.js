@@ -16,7 +16,7 @@ class StuffAudio extends Component {
   }
 
   handleOnMouseOver = () => {
-    if (this.props.correct === this.props.vowel ) {
+    if (this.props.correct && this.props.vowel && this.props.correct === this.props.vowel ) {
       document.getElementById('win').play();
     }
       document.getElementById(this.props.id).play();
