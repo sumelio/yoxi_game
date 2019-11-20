@@ -15,7 +15,9 @@ class ModalVowel extends Component {
           image={this.props.image}
           audio={this.props.audio}
           alt={this.props.alt}
-          size="10px"
+            size="10px"
+            correct={this.correct}
+            vowel='a'
         ></StuffAudio>
       }
     >
@@ -26,7 +28,8 @@ class ModalVowel extends Component {
         alt={this.props.alt}
         text={this.props.text}
         firstVowel={this.props.firstVowel}
-        size="18px"
+          size="18px"
+
       ></StuffAudio>
     </Modal>
     );
