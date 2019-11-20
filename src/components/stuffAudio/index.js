@@ -41,12 +41,18 @@ class StuffAudio extends Component {
     return (
       <div>
         <div>
-          <img
+          { !this.props.showImg && <img
             onClick={this.handleOnMouseOver}
             className={`stuff-image-${this.props.size}`}
-            src={this.props.showImg || this.props.image}
+            src={this.props.image}
             alt={this.props.alt}
-          />
+          />}
+               { this.props.showImg && <img
+            onClick={this.handleOnMouseOver}
+            className={`stuff-image-${this.props.size}`}
+            src={this.props.showImg}
+            alt={this.props.alt}
+          />}
         </div>
         
         {this.props.text && (
