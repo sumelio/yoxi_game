@@ -14,18 +14,21 @@ class StuffAudio extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.text && 
-      (document.getElementById("first-vowel").classList.add("red-vowel-turn")
-         && setTimeout(() => {
-           this.setState({
-             showImg: FailImg
-           })
-           document.getElementById('fail').play();
-           document.getElementById(`stuffImg${this.props.id}`).src = FailImg;
-        
-         }, 1000)
-      )
+      this.setAnimationAndCheckWin();
     }, 100)
   }
+   
+    setAnimationAndCheckWin() {
+      document.getElementById("first-vowel").classList.add("red-vowel-turn");
+      setTimeout(() => {
+        document.getElementById('fail').play();
+        document.getElementById(`stuffImg${this.props.id}`).src = FailImg;
+        
+      }, 0);
+      debugger;     
+      
+      return true;
+   }
 
   handleOnMouseOver = () => {
     if (this.props.correct && this.props.vowel) {
