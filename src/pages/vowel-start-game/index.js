@@ -129,7 +129,7 @@ class VowelStartGame extends Component {
             text={textElephan}
             firstVowel={firstE}
             correct={currentVowel.start}
-            vowel='u'
+            vowel='e'
           />
         </div>
         <div className="content-menu vowel-start">

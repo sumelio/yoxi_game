@@ -16,8 +16,8 @@ class ModalVowel extends Component {
           audio={this.props.audio}
           alt={this.props.alt}
             size="10px"
-            correct={this.correct}
-            vowel='a'
+            correct={this.props.correct}
+            vowel={this.props.vowel}
         ></StuffAudio>
       }
     >
