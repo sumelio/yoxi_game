@@ -1,6 +1,6 @@
 
 .arrowNext {
-    width: 10vw;
+    width: 120px;
     min-height: 4rem;
     transition: width 2s;
   }

@@ -32,6 +32,7 @@ import textElephan from "../../assets/image/text-elephan.png";
 import firstE from "../../assets/image/red-e.png";
 
 import ModalVowel from "../../components/modal-vowel";
+import ButtonNext from "../../components/button-next";
 
 class VowelStart extends Component {
   state = {
@@ -101,6 +102,7 @@ class VowelStart extends Component {
           <Vowel vowel={i} />
           <Vowel vowel={o} />
           <Vowel vowel={u} />
+          <ButtonNext go="/vowel-start-game" />
         </div>
         <audio id="VowelStartAudioId" name="VowelStartAudioId">
           <source src={VowelStartAudio} type="audio/mpeg" />
