@@ -6,3 +6,23 @@
  padding-right: 15px;
  padding-bottom: 15px;
 }
+
+.start-game-title {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+    align-content: center;
+    padding: 10px;
+}
+
+.start-game-options {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+    align-content: center;
+    padding: 10px;
+}
