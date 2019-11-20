@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import "./index.css";
 import Win from "../../assets/sound/applause.mp3";
 import Fail from "../../assets/sound/fail.mp3";
+import FailImg from "../../assets//image/fail.jpeg";
 
 class StuffAudio extends Component {
   state = {
     isPlaying: false,
-    vowel: 'vowel'
+    vowel: 'vowel',
+    showImg: null
   };
 
   componentDidMount() {
@@ -21,7 +23,13 @@ class StuffAudio extends Component {
       if (this.props.correct === this.props.vowel) {
         setTimeout( () => {document.getElementById('win').play();} , 2000)
       } else {
-        setTimeout( () => {document.getElementById('fail').play();} , 1000)
+        setTimeout( () => {
+        this.setState({
+          showImg: FailImg
+       })
+        document.getElementById('fail').play();
+      
+      } , 1000)
       }
     }
       document.getElementById(this.props.id).play();
@@ -36,7 +44,7 @@ class StuffAudio extends Component {
           <img
             onClick={this.handleOnMouseOver}
             className={`stuff-image-${this.props.size}`}
-            src={this.props.image}
+            src={this.props.showImg || this.props.image}
             alt={this.props.alt}
           />
         </div>
