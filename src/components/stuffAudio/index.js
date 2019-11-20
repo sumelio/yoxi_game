@@ -24,8 +24,7 @@ class StuffAudio extends Component {
         document.getElementById('fail').play();
       }
     }
-      document.getElementById(this.props.id).play();
-    
+    setTimeout( () => {document.getElementById(this.props.id).play();} , 500)
   };
 
   render() {
