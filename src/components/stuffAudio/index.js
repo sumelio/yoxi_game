@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./index.css";
-import Win from "../../assets/sound/coin.mp3";
+import Win from "../../assets/sound/applause.mp3";
+import Fail from "../../assets/sound/fail.mp3";
 
 class StuffAudio extends Component {
   state = {
@@ -16,8 +17,12 @@ class StuffAudio extends Component {
   }
 
   handleOnMouseOver = () => {
-    if (this.props.correct && this.props.vowel && this.props.correct === this.props.vowel ) {
-      document.getElementById('win').play();
+    if (this.props.correct && this.props.vowel) {
+      if (this.props.correct === this.props.vowel) {
+        document.getElementById('win').play();
+      } else {
+        document.getElementById('fail').play();
+      }
     }
       document.getElementById(this.props.id).play();
     
@@ -56,6 +61,10 @@ class StuffAudio extends Component {
         </audio>
         <audio id='win' name='win'>
           <source src={Win} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id='fail' name='fail'>
+          <source src={Fail} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       </div>
