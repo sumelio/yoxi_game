@@ -28,7 +28,7 @@ class StuffAudio extends Component {
           showImg: FailImg
        })
         document.getElementById('fail').play();
-        document.getElementById('stuffImg').src =  this.props.showImg;
+        document.getElementById('stuffImg').src =  FailImg;
       
       } , 1000)
       }
