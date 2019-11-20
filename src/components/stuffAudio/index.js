@@ -26,9 +26,9 @@ class StuffAudio extends Component {
         setTimeout( () => {
         this.setState({
           showImg: FailImg
-       })
+        })
         document.getElementById('fail').play();
-        document.getElementById('stuffImg').src =  FailImg;
+        document.getElementById( `stuffImg${this.props.id}`).src =  FailImg;
       
       } , 1000)
       }
@@ -42,19 +42,13 @@ class StuffAudio extends Component {
     return (
       <div>
         <div>
-          { !this.props.showImg && <img
+          <img
             onClick={this.handleOnMouseOver}
-            id="stuffImg"
+            id={`stuffImg${this.props.id}`}
             className={`stuff-image-${this.props.size}`}
             src={this.props.image}
             alt={this.props.alt}
-          />}
-               { this.props.showImg && <img
-            onClick={this.handleOnMouseOver}
-            className={`stuff-image-${this.props.size}`}
-            src={this.props.showImg}
-            alt={this.props.alt}
-          />}
+          />
         </div>
         
         {this.props.text && (
