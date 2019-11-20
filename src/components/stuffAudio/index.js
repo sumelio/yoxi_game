@@ -14,7 +14,16 @@ class StuffAudio extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.text && 
-      document.getElementById("first-vowel").classList.add("red-vowel-turn")
+      (document.getElementById("first-vowel").classList.add("red-vowel-turn")
+         && setTimeout(() => {
+           this.setState({
+             showImg: FailImg
+           })
+           document.getElementById('fail').play();
+           document.getElementById(`stuffImg${this.props.id}`).src = FailImg;
+        
+         }, 1000)
+      )
     }, 100)
   }
 
