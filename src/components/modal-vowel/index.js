@@ -22,13 +22,15 @@ class ModalVowel extends Component {
       }
     >
       <StuffAudio
-        id={this.props.id}
+        id={this.props.id+'Id'}
         image={this.props.image}
         audio={this.props.audio}
         alt={this.props.alt}
         text={this.props.text}
         firstVowel={this.props.firstVowel}
           size="18px"
+          correct={this.props.correct}
+          vowel={this.props.vowel}
 
       ></StuffAudio>
     </Modal>

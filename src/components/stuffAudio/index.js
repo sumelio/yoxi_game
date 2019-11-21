@@ -3,6 +3,7 @@ import "./index.css";
 import Win from "../../assets/sound/applause.mp3";
 import Fail from "../../assets/sound/fail.mp3";
 import FailImg from "../../assets//image/fail.jpeg";
+import WinImg from "../../assets//image/win.jpeg";
 
 class StuffAudio extends Component {
   state = {
@@ -14,17 +15,31 @@ class StuffAudio extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.props.text && 
-      this.setAnimationAndCheckWin();
+      this.setAnimationAndCheckWin()
     }, 100)
   }
    
     setAnimationAndCheckWin() {
       document.getElementById("first-vowel").classList.add("red-vowel-turn");
       setTimeout(() => {
-        document.getElementById('fail').play();
-        document.getElementById(`stuffImg${this.props.id}`).src = FailImg;
+        if (this.props.correct && this.props.vowel) {
+          if (this.props.correct === this.props.vowel) {
+            setTimeout(() => {              
+              document.getElementById(`stuffImg${this.props.id}`).src = WinImg;
+              document.getElementById('win').play();
+            }, 2000)
+            
+          } else {
+            setTimeout(() => {
+              
+              document.getElementById('fail').play();
+              document.getElementById(`stuffImg${this.props.id}`).src = FailImg;
+            } , 2000)
+            
+          }
+        }
         
-      }, 0);
+      }, 1000);
       debugger;     
       
       return true;
@@ -33,14 +48,13 @@ class StuffAudio extends Component {
   handleOnMouseOver = () => {
     if (this.props.correct && this.props.vowel) {
       if (this.props.correct === this.props.vowel) {
-        setTimeout( () => {document.getElementById('win').play();} , 2000)
+        
       } else {
         setTimeout( () => {
         this.setState({
           showImg: FailImg
         })
-        document.getElementById('fail').play();
-        document.getElementById( `stuffImg${this.props.id}`).src =  FailImg;
+        //document.getElementById('fail').play();
       
       } , 1000)
       }

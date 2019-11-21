@@ -49,18 +49,30 @@ class VowelStartGame extends Component {
       { img: i, sound: 'VowelStartGameAudioI', start: 'i'  },
       { img: o, sound: 'VowelStartGameAudioO', start: 'o'  },
       { img: u, sound: 'VowelStartGameAudioU', start: 'u'  }
-    ]
+    ],
+    currentVowel: null
   };
 
-  constructor() {
-    super();
-    this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
-    this.getNext = this.getNext.bind(this);
+  componentDidMount() { 
+        const currentVowel = this.getNext();
+        this.setState({
+          currentVowel: currentVowel
+        });
+        if (this.state.currentVowel && this.state.currentVowel.sound) {
+       
+          setTimeout(() => {
+            document.getElementById(currentVowel.sound).play();
+            //this.handleOnMouseOverGame()
+          }, 500)
+    
+        }
   }
-  componentDidMount() { }
 
-  handleOnMouseOver = event => {
-    document.getElementById("VowelStartAudioId").play();
+  handleOnMouseOverGame () {
+    debugger;
+    if (this.state.currentVowel && this.state.currentVowel.sound && document.getElementById(this.state.currentVowel.sound)) {
+      document.getElementById(this.state.currentVowel.sound).play();
+    }
   };
 
   getNext() {
@@ -74,94 +86,103 @@ class VowelStartGame extends Component {
   }
 
   render() {
-    const currentVowel = this.getNext();
-    if (currentVowel && currentVowel.sound) {
-      debugger;
-      setTimeout(() => {
-        document.getElementById(currentVowel.sound).play();
-      }, 500)
 
-    }
-    return (
-      <React.Fragment>
-        <div className="start-game-title">
-          {currentVowel && <Vowel vowel={currentVowel.img} />}
-        </div>
-
-        <div className="start-game-options">
-          <ModalVowel
-            id={RainBow}
-            image={RainBow}
-            audio={RainBowAudio}
-            alt="Arcoíris"
-            text={textArcoiris}
-            firstVowel={firstA}
-            correct={currentVowel.start}
-            vowel='a'
-          />
-          <ModalVowel
-            id={Magnet}
-            image={Magnet}
-            audio={MagentAudio}
-            alt="Iman"
-            text={textIman}
-            firstVowel={firstI}
-            correct={currentVowel.start}
-            vowel='i'
-          />
-
-          <ModalVowel
-            id={Bear}
-            image={Bear}
-            audio={BearAudio}
-            alt="Oso"
-            text={textBear}
-            firstVowel={firstO}
-            correct={currentVowel.start}
-            vowel='o'
-          />
-
-          <ModalVowel
-            id={Elephan}
-            image={Elephan}
-            audio={ElephanAudio}
-            alt="Elefante"
-            text={textElephan}
-            firstVowel={firstE}
-            correct={currentVowel.start}
-            vowel='e'
-          />
-        </div>
+    if (!this.state.currentVowel) { 
+      return (
         <div className="content-menu vowel-start">
-          <ButtonBack go="/vowel-start" />
-          <ButtonNext go="/vowel-start-game" />
-        </div>
-        <audio id="VowelStartAudioId" name="VowelStartAudioAId">
-          <source src={VowelStartAudio} type="audio/mpeg" />
-          Your browser does not support the audio element.
+        <ButtonBack go="/vowel-start" />
+        <ButtonNext go="/vowel-start-game" />
+      </div>
+      )
+    }
+
+    if (this.state.currentVowel) {
+      return (
+      
+        <React.Fragment>
+          <div className="content-menu vowel-start-time">
+            <h1><img onClick={this.handleOnMouseOverGame()} src={yoxi} className="yoxi-vowel-start" alt="Yoxi" />
+              JUGAR VOCAL INICIAL</h1>
+          </div>
+          <div className="start-game-title">
+            {this.state.currentVowel && <Vowel vowel={this.state.currentVowel.img} />}
+          </div>
+
+          <div className="start-game-options">
+            <ModalVowel
+              id={RainBow}
+              image={RainBow}
+              audio={RainBowAudio}
+              alt="Arcoíris"
+              text={textArcoiris}
+              firstVowel={firstA}
+              correct={this.state.currentVowel.start}
+              vowel='a'
+            />
+            <ModalVowel
+              id={Magnet}
+              image={Magnet}
+              audio={MagentAudio}
+              alt="Iman"
+              text={textIman}
+              firstVowel={firstI}
+              correct={this.state.currentVowel.start}
+              vowel='i'
+            />
+
+            <ModalVowel
+              id={Bear}
+              image={Bear}
+              audio={BearAudio}
+              alt="Oso"
+              text={textBear}
+              firstVowel={firstO}
+              correct={this.state.currentVowel.start}
+              vowel='o'
+            />
+
+            <ModalVowel
+              id={Elephan}
+              image={Elephan}
+              audio={ElephanAudio}
+              alt="Elefante"
+              text={textElephan}
+              firstVowel={firstE}
+              correct={this.state.currentVowel.start}
+              vowel='e'
+            />
+          </div>
+          <div className="content-menu vowel-start">
+            <ButtonBack go="/vowel-start" />
+            <ButtonNext go="/vowel-start-game" />
+          </div>
+          <audio id="VowelStartAudioId" name="VowelStartAudioAId">
+            <source src={VowelStartAudio} type="audio/mpeg" />
+            Your browser does not support the audio element.
         </audio>
-        <audio id="VowelStartGameAudioA" name="VowelStartGameAudioA">
-          <source src={GameStartA} type="audio/mpeg" />
-          Your browser does not support the audio element.
+          <audio id="VowelStartGameAudioA" name="VowelStartGameAudioA">
+            <source src={GameStartA} type="audio/mpeg" />
+            Your browser does not support the audio element.
         </audio>
-        <audio id="VowelStartGameAudioE" name="VowelStartGameAudioE">
-          <source src={GameStartE} type="audio/mpeg" />
-          Your browser does not support the audio element.
+          <audio id="VowelStartGameAudioE" name="VowelStartGameAudioE">
+            <source src={GameStartE} type="audio/mpeg" />
+            Your browser does not support the audio element.
         </audio>
-        <audio id="VowelStartGameAudioI" name="VowelStartGameAudioI">
-          <source src={GameStartI} type="audio/mpeg" />
-          Your browser does not support the audio element.
+          <audio id="VowelStartGameAudioI" name="VowelStartGameAudioI">
+            <source src={GameStartI} type="audio/mpeg" />
+            Your browser does not support the audio element.
         </audio>
-        <audio id="VowelStartGameAudioO" name="VowelStartGameAudioO">
-          <source src={GameStartO} type="audio/mpeg" />
-          Your browser does not support the audio element.
+          <audio id="VowelStartGameAudioO" name="VowelStartGameAudioO">
+            <source src={GameStartO} type="audio/mpeg" />
+            Your browser does not support the audio element.
         </audio>
-        <audio id="VowelStartGameAudioU" name="VowelStartGameAudioU">
-          <source src={GameStartU} type="audio/mpeg" />
-          Your browser does not support the audio element.
+          <audio id="VowelStartGameAudioU" name="VowelStartGameAudioU">
+            <source src={GameStartU} type="audio/mpeg" />
+            Your browser does not support the audio element.
         </audio>
-      </React.Fragment>
-    );
+        </React.Fragment>
+      );
+    }
   }
 }
 

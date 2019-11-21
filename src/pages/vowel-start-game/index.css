@@ -17,6 +17,11 @@
     padding-bottom: 100px;
 }
 
+.yoxi-vowel-start-game {
+	max-width: 10rem;
+	max-height: 10rem;
+	cursor: pointer;
+}
 .start-game-options {
 	display: flex;
 	flex-direction: row;
