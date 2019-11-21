@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
-import Win from "../../assets/sound/applause.mp3";
+import Win from "../../assets/sound/win.mp3";
 import Fail from "../../assets/sound/fail.mp3";
 import FailImg from "../../assets//image/fail.jpeg";
 import WinImg from "../../assets//image/win.jpeg";
@@ -25,6 +25,7 @@ class StuffAudio extends Component {
         if (this.props.correct && this.props.vowel) {
           if (this.props.correct === this.props.vowel) {
             setTimeout(() => {              
+              if(document.getElementById(`stuffImg${this.props.id}`))
               document.getElementById(`stuffImg${this.props.id}`).src = WinImg;
               document.getElementById('win').play();
             }, 2000)
@@ -33,6 +34,7 @@ class StuffAudio extends Component {
             setTimeout(() => {
               
               document.getElementById('fail').play();
+              if(document.getElementById(`stuffImg${this.props.id}`))
               document.getElementById(`stuffImg${this.props.id}`).src = FailImg;
             } , 2000)
             
@@ -55,8 +57,9 @@ class StuffAudio extends Component {
           showImg: FailImg
         })
         //document.getElementById('fail').play();
+        document.getElementById(`stuffImg${this.props.id}`).src = FailImg;
       
-      } , 1000)
+      } , 2000)
       }
     }
       document.getElementById(this.props.id).play();

@@ -31,3 +31,12 @@
     align-content: center;
     padding: 10px;
 }
+
+.two {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}

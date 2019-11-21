@@ -9,11 +9,19 @@ import GameStartU from "../../assets/sound/game-start-u.mp3";
 import "./index.css";
 import ButtonBack from "../../components/button-back";
 import Vowel from "../../components/vowel";
+
+
 import a from "../../assets/image/a.png";
+import Asound from "../../assets/sound/Aa.mp3";
 import e from "../../assets/image/e.png";
+import Esound from "../../assets/sound/Ee.mp3";
 import i from "../../assets/image/i.png";
+import Isound from "../../assets/sound/Ii.mp3";
 import o from "../../assets/image/o.png";
+import Osound from "../../assets/sound/Oo.mp3";
 import u from "../../assets/image/u.png";
+import Usound from "../../assets/sound/Uu.mp3";
+import yoxi from "../../assets/image/yoxi.png";
 
 
 import RainBow from "../../assets/image/rainbow.png";
@@ -36,34 +44,46 @@ import ElephanAudio from "../../assets/sound/elephan.mp3";
 import textElephan from "../../assets/image/text-elephan.png";
 import firstE from "../../assets/image/red-e.png";
 
-import yoxi from "../../assets/image/yoxi.png";
+import Grapes from "../../assets/image/grapes.png";
+import GrapesAudio from "../../assets/sound/grapes.mp3";
+import textGrapes from "../../assets/image/text-grapes.png";
+import firstU from "../../assets/image/red-u.png";
+
+
 import ButtonNext from "../../components/button-next";
 import ModalVowel from "../../components/modal-vowel";
 
 class VowelStartGame extends Component {
   
-  state = {
-    vowels: [
-      { img: a, sound: 'VowelStartGameAudioA', start: 'a' },
-      { img: e, sound: 'VowelStartGameAudioE', start: 'e'  },
-      { img: i, sound: 'VowelStartGameAudioI', start: 'i'  },
-      { img: o, sound: 'VowelStartGameAudioO', start: 'o'  },
-      { img: u, sound: 'VowelStartGameAudioU', start: 'u'  }
-    ],
-    currentVowel: null
-  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      vowels: [
+        { img: a, vowelSound: Asound, sound: 'VowelStartGameAudioA', start: 'a' },
+        { img: e, vowelSound: Esound, sound: 'VowelStartGameAudioE', start: 'e'  },
+        { img: i, vowelSound: Isound, sound: 'VowelStartGameAudioI', start: 'i'  },
+        { img: o, vowelSound: Osound, sound: 'VowelStartGameAudioO', start: 'o'  },
+        { img: u, vowelSound: Usound, sound: 'VowelStartGameAudioU', start: 'u'  }
+      ],
+      currentVowel: null
+    };
+
+    // Este enlace es necesario para hacer que `this` funcione en el callback
+    this.handleOnMouseOverGame = this.handleOnMouseOverGame.bind(this);
+  }
 
   componentDidMount() { 
         const currentVowel = this.getNext();
         this.setState({
           currentVowel: currentVowel
         });
-        if (this.state.currentVowel && this.state.currentVowel.sound) {
+        if (currentVowel && currentVowel.sound) {
        
           setTimeout(() => {
             document.getElementById(currentVowel.sound).play();
             //this.handleOnMouseOverGame()
-          }, 500)
+          }, 1000)
     
         }
   }
@@ -76,7 +96,7 @@ class VowelStartGame extends Component {
   };
 
   getNext() {
-    const vowelCurrent = this.state.vowels[this.getRandomInt(0, 4)];
+    const vowelCurrent = this.state.vowels[this.getRandomInt(0, 5)];
     console.log("vowelCurrent", vowelCurrent);
     return vowelCurrent;
   }
@@ -89,10 +109,38 @@ class VowelStartGame extends Component {
 
     if (!this.state.currentVowel) { 
       return (
-        <div className="content-menu vowel-start">
-        <ButtonBack go="/vowel-start" />
-        <ButtonNext go="/vowel-start-game" />
-      </div>
+
+        <React.Fragment>
+          
+          <div className="content-menu vowel-start">
+            <ButtonBack go="/vowel-start" />
+            <ButtonNext go="/vowel-start-game" />
+          </div>
+          <audio id="VowelStartAudioId" name="VowelStartAudioAId">
+            <source src={VowelStartAudio} type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+          <audio id="VowelStartGameAudioA" name="VowelStartGameAudioA">
+            <source src={GameStartA} type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+          <audio id="VowelStartGameAudioE" name="VowelStartGameAudioE">
+            <source src={GameStartE} type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+          <audio id="VowelStartGameAudioI" name="VowelStartGameAudioI">
+            <source src={GameStartI} type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+          <audio id="VowelStartGameAudioO" name="VowelStartGameAudioO">
+            <source src={GameStartO} type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+          <audio id="VowelStartGameAudioU" name="VowelStartGameAudioU">
+            <source src={GameStartU} type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+        </React.Fragment>
       )
     }
 
@@ -101,11 +149,13 @@ class VowelStartGame extends Component {
       
         <React.Fragment>
           <div className="content-menu vowel-start-time">
-            <h1><img onClick={this.handleOnMouseOverGame()} src={yoxi} className="yoxi-vowel-start" alt="Yoxi" />
-              JUGAR VOCAL INICIAL</h1>
+            <h1> JUGAR VOCAL INICIAL</h1>
           </div>
           <div className="start-game-title">
-            {this.state.currentVowel && <Vowel vowel={this.state.currentVowel.img} />}
+            <div className="two">
+            <img onClick={this.handleOnMouseOverGame} src={yoxi} className="yoxi-vowel-start" alt="Yoxi" />
+              <Vowel vowel={this.state.currentVowel.img} id={this.state.currentVowel.start} vowelSound={this.state.currentVowel.vowelSound}/>
+              </div>
           </div>
 
           <div className="start-game-options">
@@ -139,6 +189,17 @@ class VowelStartGame extends Component {
               firstVowel={firstO}
               correct={this.state.currentVowel.start}
               vowel='o'
+            />
+
+             <ModalVowel
+              id={Grapes}
+              image={Grapes}
+              audio={GrapesAudio}
+              alt="Uvas"
+              text={textGrapes}
+              firstVowel={firstU}
+              correct={this.state.currentVowel.start}
+              vowel='u'
             />
 
             <ModalVowel

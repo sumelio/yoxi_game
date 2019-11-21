@@ -7,10 +7,15 @@ import IntroAudio from "../../assets/sound/intro.mp3";
 import EnterAudio from "../../assets/sound/enter.mp3";
 
 import a from "../../assets/image/a.png";
+import Asound from "../../assets/sound/Aa.mp3";
 import e from "../../assets/image/e.png";
+import Esound from "../../assets/sound/Ee.mp3";
 import i from "../../assets/image/i.png";
+import Isound from "../../assets/sound/Ii.mp3";
 import o from "../../assets/image/o.png";
+import Osound from "../../assets/sound/Oo.mp3";
 import u from "../../assets/image/u.png";
+import Usound from "../../assets/sound/Uu.mp3";
 import yoxi from "../../assets/image/yoxi.png";
 
 import Vowel from "../../components/vowel";
@@ -37,11 +42,11 @@ class IntroPage extends Component {
         <img onClick={this.handleOnMouseOver} src={yoxi} className="yoxi-intro" alt="Yoxi" />
         <div className="content">
           <div className="content-menu">
-            <Vowel vowel={a} />
-            <Vowel vowel={e} />
-            <Vowel vowel={i} />
-            <Vowel vowel={o} />
-            <Vowel vowel={u} />
+            <Vowel vowel={a} id='a' vowelSound={Asound} />
+            <Vowel vowel={e} id='e' vowelSound={Esound} />
+            <Vowel vowel={i} id='i' vowelSound={Isound} />
+            <Vowel vowel={o} id='o' vowelSound={Osound} />
+            <Vowel vowel={u} id='u' vowelSound={Usound} />
             <ButtonNext go="/menu-game" />
           </div>
           <audio id="IntroAudioId" name="IntroAudioId">
