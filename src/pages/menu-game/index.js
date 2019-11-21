@@ -42,7 +42,7 @@ class MenuGame extends Component {
         </div>
         <div className="content-menu">
           <ButtonBack go="/" />
-          <MenuItem label="Identificar vocal inicial" go="/vowel-start" />
+          <MenuItem label="Descubre vocal inicial" go="/vowel-start" />
           <MenuItem label="Descubre el sonido de la vocal inicial" go="/vowel-start-game" />
           <MenuItem label="Descubre el sonido de la vocal final" go="/vowel-intermedial" />
           <MenuItem label="Rima rimando" go="/vowel-start" />
