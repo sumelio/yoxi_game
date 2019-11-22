@@ -30,7 +30,7 @@ import GrapesAudio from "../../assets/sound/grapes.mp3";
 import textGrapes from "../../assets/image/text-grapes.png";
 import firstU from "../../assets/image/red-u.png";
 
-import Uniform from "../../assets/image/uniform.jpeg";
+import Uniform from "../../assets/image/uniform.png";
 import UniformAudio from "../../assets/sound/uniform.mp3";
 import textUniform from "../../assets/image/text-uniform.png";
 
@@ -47,10 +47,28 @@ import Star from "../../assets/image/star.jpeg";
 import StarAudio from "../../assets/sound/star.mp3";
 import textStar from "../../assets/image/text-star.png";
 
-import Igloo from "../../assets/image/igloo.jpeg";
+import Igloo from "../../assets/image/igloo.png";
 import IglooAudio from "../../assets/sound/igloo.mp3";
 import textIgloo from "../../assets/image/text-gloo.png";
 import firstIup from "../../assets/image/red-i-up.png";
+
+
+import Ambulance from "../../assets/image/ambulance.png";
+import AmbulanceAudio from "../../assets/sound/ambulance.mp3";
+import textAmbulance from "../../assets/image/text-ambulance.png";
+
+import Hedgehog from "../../assets/image/hedgehog.jpeg";
+import HedgehogAudio from "../../assets/sound/hedgehog.mp3";
+import textHedgehog from "../../assets/image/text-hedgehog.png";
+
+import Bee from "../../assets/image/bee.png";
+import BeeAudio from "../../assets/sound/bee.mp3";
+import textBee from "../../assets/image/text-bee.png";
+import firstAup from "../../assets/image/red-a-up.png";
+
+import Iguana from "../../assets/image/iguana.png";
+import IguanaAudio from "../../assets/sound/iguana.mp3";
+import textIguana from "../../assets/image/text-iguana.png";
 
 import ModalVowel from "../../components/modal-vowel";
 import ButtonNext from "../../components/button-next";
@@ -166,6 +184,38 @@ class VowelStart extends Component {
             text={textIgloo}
             firstVowel={firstIup}
           />
+        <ModalVowel
+            id={Ambulance}
+            image={Ambulance}
+            audio={AmbulanceAudio}
+            alt="Indio"
+            text={textAmbulance}
+            firstVowel={firstA}
+          />
+        <ModalVowel
+            id={Hedgehog}
+            image={Hedgehog}
+            audio={HedgehogAudio}
+            alt="Indio"
+            text={textHedgehog}
+            firstVowel={firstE}
+          />
+        <ModalVowel
+            id={Bee}
+            image={Bee}
+            audio={BeeAudio}
+            alt="Abeja"
+            text={textBee}
+            firstVowel={firstAup}
+          />
+        <ModalVowel
+            id={Iguana}
+            image={Iguana}
+            audio={IguanaAudio}
+            alt="Abeja"
+            text={textIguana}
+            firstVowel={firstIup}
+          />          
         </div>
         <div className="content-menu vowel-start">
           <ButtonBack go="/menu-game" />

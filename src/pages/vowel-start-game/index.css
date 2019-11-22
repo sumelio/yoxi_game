@@ -25,11 +25,11 @@
 .start-game-options {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	justify-content: space-around;
-	align-items: center;
-    align-content: center;
-    padding: 10px;
+	align-items: flex-start;
+	align-content: space-around;
+    padding: 20px;
 }
 
 .two {

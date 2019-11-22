@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "./index.css";
 import Win from "../../assets/sound/win.mp3";
 import Fail from "../../assets/sound/fail.mp3";
-import FailImg from "../../assets//image/fail.jpeg";
-import WinImg from "../../assets//image/win.jpeg";
+import FailImg from "../../assets//image/fail.png";
+import WinImg from "../../assets//image/win.png";
 
 class StuffAudio extends Component {
   state = {
