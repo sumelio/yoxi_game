@@ -9,7 +9,7 @@ import GameStartU from "../../assets/sound/game-start-u.mp3";
 import "./index.css";
 import ButtonBack from "../../components/button-back";
 import Vowel from "../../components/vowel";
-
+import arrowNext from "../../assets/image/arrow-next.png";
 
 import a from "../../assets/image/a.png";
 import Asound from "../../assets/sound/Aa.mp3";
@@ -114,29 +114,35 @@ class VowelStartGame extends Component {
 
     // Este enlace es necesario para hacer que `this` funcione en el callback
     this.handleOnMouseOverGame = this.handleOnMouseOverGame.bind(this);
+    this.startGame = this.startGame.bind(this);
   }
 
   componentDidMount() { 
-        const currentVowel = this.getNext();
-        this.setState({
-          currentVowel: currentVowel
-        });
-        if (currentVowel && currentVowel.sound) {
-       
-          setTimeout(() => {
-            document.getElementById(currentVowel.sound).play();
-            //this.handleOnMouseOverGame()
-          }, 1000)
+    this.startGame();
 
-          setTimeout(() => {
-            document.getElementById(currentVowel.sound).play();
-            //this.handleOnMouseOverGame()
-            this.setState({
-              show: true
-            });
-          }, 4000);
-    
-        }
+  }
+
+  startGame() {
+    const currentVowel = this.getNext();
+    this.setState({
+      currentVowel: currentVowel
+    });
+    if (currentVowel && currentVowel.sound) {
+   
+      setTimeout(() => {
+        document.getElementById(currentVowel.sound).play();
+        //this.handleOnMouseOverGame()
+      }, 1000)
+
+      setTimeout(() => {
+        document.getElementById(currentVowel.sound).play();
+        //this.handleOnMouseOverGame()
+        this.setState({
+          show: true
+        });
+      }, 4000);
+
+    }
   }
 
   handleOnMouseOverGame () {
@@ -147,13 +153,20 @@ class VowelStartGame extends Component {
 
   getNext() {
     const vowelCurrent = this.state.vowels[this.getRandomInt(0, 5)];
-    console.log("vowelCurrent", vowelCurrent);
     return vowelCurrent;
   }
 
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
+  paintVowel(v,c) {
+    return <Vowel className={v.start !== c.start && 'filter'}
+                   vowel={v.img}
+                   id={v.start}
+                   vowelSound={v.vowelSound}
+                   size="100px" 
+                 />  
+   }
 
   render() {
 
@@ -194,6 +207,7 @@ class VowelStartGame extends Component {
       )
     }
 
+  
     if (this.state.currentVowel) {
       return (
       
@@ -203,13 +217,9 @@ class VowelStartGame extends Component {
           </div>
           <div className="start-game-title">
             <div className="two">
-            <img onClick={this.handleOnMouseOverGame} src={yoxi} className="yoxi-vowel-start" alt="Yoxi" />
-              <Vowel
-                vowel={this.state.currentVowel.img}
-                id={this.state.currentVowel.start}
-                vowelSound={this.state.currentVowel.vowelSound}
-                size="100px" 
-              />
+              <img onClick={this.handleOnMouseOverGame} src={yoxi} className="yoxi-vowel-start" alt="Yoxi" />
+              {this.state.vowels.map( (v, i) => this.paintVowel(v,this.state.currentVowel) ) }
+              
               </div>
           </div>
 
@@ -362,7 +372,12 @@ class VowelStartGame extends Component {
           }
           <div className="content-menu vowel-start">
             <ButtonBack go="/vowel-start" />
-            <ButtonNext go="/vowel-final" />
+            <img
+          onClick={this.startGame}
+          src={arrowNext}
+          className="arrowNext"
+          alt="Menu"
+        />
           </div>
           <audio id="VowelStartAudioId" name="VowelStartAudioAId">
             <source src={VowelStartAudio} type="audio/mpeg" />
