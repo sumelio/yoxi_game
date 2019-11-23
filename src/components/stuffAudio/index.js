@@ -26,7 +26,6 @@ class StuffAudio extends Component {
           if (this.props.correct === this.props.vowel) {
             setTimeout(() => {              
               if(document.getElementById(`stuffImg${this.props.id}`))
-              document.getElementById(`stuffImg${this.props.id}`).src = WinImg;
               document.getElementById('win').play();
             }, 2000)
             
@@ -41,8 +40,7 @@ class StuffAudio extends Component {
           }
         }
         
-      }, 1000);
-      debugger;     
+      }, 1000);  
       
       return true;
    }

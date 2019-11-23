@@ -5,6 +5,7 @@ import IntroPage from "./pages/intro";
 import MenuGame from "./pages/menu-game";
 import VowelStart from "./pages/vowel-start";
 import VowelStartGame from "./pages/vowel-start-game";
+import VowelFinal from "./pages/vowel-final";
 
 const App = props => (
   <React.Fragment>
@@ -14,7 +15,7 @@ const App = props => (
         <Route exact path="/menu-game" component={MenuGame} />
         <Route exact path="/vowel-start" component={VowelStart} />
         <Route exact path="/vowel-start-game" component={VowelStartGame} />
-        
+        <Route exact path="/vowel-final" component={VowelFinal} />
       </div>
     </BrowserRouter>
     <div className="footer-copyright">

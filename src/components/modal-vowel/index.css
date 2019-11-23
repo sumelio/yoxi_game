@@ -56,3 +56,6 @@
   transform: rotate(0deg);
 
 }
+.modal {
+  padding: 20px;
+}

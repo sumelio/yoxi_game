@@ -8,14 +8,15 @@ class ModalVowel extends Component {
 
   render() {
     return (
-      <Modal
+      <div className="modal" >
+      <Modal 
       trigger={
         <StuffAudio
           id={this.props.id}
           image={this.props.image}
           audio={this.props.audio}
           alt={this.props.alt}
-            size="10px"
+            size="8px"
             correct={this.props.correct}
             vowel={this.props.vowel}
         ></StuffAudio>
@@ -33,7 +34,8 @@ class ModalVowel extends Component {
           vowel={this.props.vowel}
 
       ></StuffAudio>
-    </Modal>
+        </Modal>
+        </div>
     );
   }
 }

@@ -39,14 +39,15 @@ class IntroPage extends Component {
   render() {
     return (
       <div >
+        <span><h1>Aprendiendo con Yoxi</h1></span>
         <img onClick={this.handleOnMouseOver} src={yoxi} className="yoxi-intro" alt="Yoxi" />
         <div className="content">
           <div className="content-menu">
-            <Vowel vowel={a} id='a' vowelSound={Asound} />
-            <Vowel vowel={e} id='e' vowelSound={Esound} />
-            <Vowel vowel={i} id='i' vowelSound={Isound} />
-            <Vowel vowel={o} id='o' vowelSound={Osound} />
-            <Vowel vowel={u} id='u' vowelSound={Usound} />
+            <Vowel vowel={a} id='a' vowelSound={Asound} size="200px" />
+            <Vowel vowel={e} id='e' vowelSound={Esound} size="200px" />
+            <Vowel vowel={i} id='i' vowelSound={Isound} size="200px" />
+            <Vowel vowel={o} id='o' vowelSound={Osound} size="200px" />
+            <Vowel vowel={u} id='u' vowelSound={Usound} size="200px" />
             <ButtonNext go="/menu-game" />
           </div>
           <audio id="IntroAudioId" name="IntroAudioId">

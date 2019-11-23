@@ -19,7 +19,7 @@ class Vowel extends Component {
   render() {
     return (
       <div onClick={this.handleOnClick} className="content-menu-item">
-        <img src={this.props.vowel} className="yoxi-vowel" alt="a" />
+        <img src={this.props.vowel} className={`yoxi-vowel-${this.props.size}`} alt={this.props.vowel} />
         <audio  id={this.props.id} name={this.props.id}>
           <source src={this.props.vowelSound} type="audio/mpeg" />
           Your browser does not support the audio element.

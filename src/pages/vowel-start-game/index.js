@@ -108,7 +108,8 @@ class VowelStartGame extends Component {
         { img: o, vowelSound: Osound, sound: 'VowelStartGameAudioO', start: 'o'  },
         { img: u, vowelSound: Usound, sound: 'VowelStartGameAudioU', start: 'u'  }
       ],
-      currentVowel: null
+      currentVowel: null,
+      show: false
     };
 
     // Este enlace es necesario para hacer que `this` funcione en el callback
@@ -126,12 +127,19 @@ class VowelStartGame extends Component {
             document.getElementById(currentVowel.sound).play();
             //this.handleOnMouseOverGame()
           }, 1000)
+
+          setTimeout(() => {
+            document.getElementById(currentVowel.sound).play();
+            //this.handleOnMouseOverGame()
+            this.setState({
+              show: true
+            });
+          }, 4000);
     
         }
   }
 
   handleOnMouseOverGame () {
-    debugger;
     if (this.state.currentVowel && this.state.currentVowel.sound && document.getElementById(this.state.currentVowel.sound)) {
       document.getElementById(this.state.currentVowel.sound).play();
     }
@@ -196,158 +204,165 @@ class VowelStartGame extends Component {
           <div className="start-game-title">
             <div className="two">
             <img onClick={this.handleOnMouseOverGame} src={yoxi} className="yoxi-vowel-start" alt="Yoxi" />
-              <Vowel vowel={this.state.currentVowel.img} id={this.state.currentVowel.start} vowelSound={this.state.currentVowel.vowelSound}/>
+              <Vowel
+                vowel={this.state.currentVowel.img}
+                id={this.state.currentVowel.start}
+                vowelSound={this.state.currentVowel.vowelSound}
+                size="100px" 
+              />
               </div>
           </div>
 
-          <div className="start-game-options">
-            <ModalVowel
-              id={RainBow}
-              image={RainBow}
-              audio={RainBowAudio}
-              alt="Arcoíris"
-              text={textArcoiris}
-              firstVowel={firstA}
-              correct={this.state.currentVowel.start}
-              vowel='a'
-            />
-            <ModalVowel
-              id={Magnet}
-              image={Magnet}
-              audio={MagentAudio}
-              alt="Iman"
-              text={textIman}
-              firstVowel={firstI}
-              correct={this.state.currentVowel.start}
-              vowel='i'
-            />
+          {this.state.show &&
+            <div className="start-game-options">
+              <ModalVowel
+                id={RainBow}
+                image={RainBow}
+                audio={RainBowAudio}
+                alt="Arcoíris"
+                text={textArcoiris}
+                firstVowel={firstA}
+                correct={this.state.currentVowel.start}
+                vowel='a'
+              />
+              <ModalVowel
+                id={Magnet}
+                image={Magnet}
+                audio={MagentAudio}
+                alt="Iman"
+                text={textIman}
+                firstVowel={firstI}
+                correct={this.state.currentVowel.start}
+                vowel='i'
+              />
 
-            <ModalVowel
-              id={Bear}
-              image={Bear}
-              audio={BearAudio}
-              alt="Oso"
-              text={textBear}
-              firstVowel={firstO}
-              correct={this.state.currentVowel.start}
-              vowel='o'
-            />
+              <ModalVowel
+                id={Bear}
+                image={Bear}
+                audio={BearAudio}
+                alt="Oso"
+                text={textBear}
+                firstVowel={firstO}
+                correct={this.state.currentVowel.start}
+                vowel='o'
+              />
 
-             <ModalVowel
-              id={Grapes}
-              image={Grapes}
-              audio={GrapesAudio}
-              alt="Uvas"
-              text={textGrapes}
-              firstVowel={firstU}
-              correct={this.state.currentVowel.start}
-              vowel='u'
-            />
+              <ModalVowel
+                id={Grapes}
+                image={Grapes}
+                audio={GrapesAudio}
+                alt="Uvas"
+                text={textGrapes}
+                firstVowel={firstU}
+                correct={this.state.currentVowel.start}
+                vowel='u'
+              />
 
-            <ModalVowel
-              id={Elephan}
-              image={Elephan}
-              audio={ElephanAudio}
-              alt="Elefante"
-              text={textElephan}
-              firstVowel={firstE}
-              correct={this.state.currentVowel.start}
-              vowel='e'
-            />
-            <ModalVowel
-              id={Uniform}
-              image={Uniform}
-              audio={UniformAudio}
-              alt="Uniforme"
-              text={textUniform}
-              firstVowel={firstU}
-              correct={this.state.currentVowel.start}
-              vowel='u'
-            />            
-            <ModalVowel
-              id={Sheep}
-              image={Sheep}
-              audio={SheepAudio}
-              alt="Oveja"
-              text={textSheep}
-              firstVowel={firstO}
-              correct={this.state.currentVowel.start}
-              vowel='o'
-            />
-            <ModalVowel
-              id={Indian}
-              image={Indian}
-              audio={IndianAudio}
-              alt="Indio"
-              text={textIndian}
-              firstVowel={firstI}
-              correct={this.state.currentVowel.start}
-              vowel='i'
-            />            
-            <ModalVowel
-              id={Star}
-              image={Star}
-              audio={StarAudio}
-              alt="Estrella"
-              text={textStar}
-              firstVowel={firstE}
-              correct={this.state.currentVowel.start}
-              vowel='e'
-            />
-            <ModalVowel
-              id={Igloo}
-              image={Igloo}
-              audio={IglooAudio}
-              alt="Iglu"
-              text={textIgloo}
-              firstVowel={firstI}
-              correct={this.state.currentVowel.start}
-              vowel='i'
-            />           
-            <ModalVowel
-              id={Ambulance}
-              image={Ambulance}
-              audio={AmbulanceAudio}
-              alt="Ambulancia"
-              text={textAmbulance}
-              firstVowel={firstA}
-              correct={this.state.currentVowel.start}
-              vowel='a'
-            />    
-            <ModalVowel
-              id={Hedgehog}
-              image={Hedgehog}
-              audio={HedgehogAudio}
-              alt="Erizo"
-              text={textHedgehog}
-              firstVowel={firstE}
-              correct={this.state.currentVowel.start}
-              vowel='e'
-            />    
-            <ModalVowel
-              id={Bee}
-              image={Bee}
-              audio={BeeAudio}
-              alt="Aveja"
-              text={textBee}
-              firstVowel={firstAup}
-              correct={this.state.currentVowel.start}
-              vowel='a'
-            />    
-            <ModalVowel
-              id={Iguana}
-              image={Iguana}
-              audio={IguanaAudio}
-              alt="Iguana"
-              text={textIguana}
-              firstVowel={firstIup}
-              correct={this.state.currentVowel.start}
-              vowel='i'
-            />    
-          </div>
+              <ModalVowel
+                id={Elephan}
+                image={Elephan}
+                audio={ElephanAudio}
+                alt="Elefante"
+                text={textElephan}
+                firstVowel={firstE}
+                correct={this.state.currentVowel.start}
+                vowel='e'
+              />
+              <ModalVowel
+                id={Uniform}
+                image={Uniform}
+                audio={UniformAudio}
+                alt="Uniforme"
+                text={textUniform}
+                firstVowel={firstU}
+                correct={this.state.currentVowel.start}
+                vowel='u'
+              />
+              <ModalVowel
+                id={Sheep}
+                image={Sheep}
+                audio={SheepAudio}
+                alt="Oveja"
+                text={textSheep}
+                firstVowel={firstO}
+                correct={this.state.currentVowel.start}
+                vowel='o'
+              />
+              <ModalVowel
+                id={Indian}
+                image={Indian}
+                audio={IndianAudio}
+                alt="Indio"
+                text={textIndian}
+                firstVowel={firstI}
+                correct={this.state.currentVowel.start}
+                vowel='i'
+              />
+              <ModalVowel
+                id={Star}
+                image={Star}
+                audio={StarAudio}
+                alt="Estrella"
+                text={textStar}
+                firstVowel={firstE}
+                correct={this.state.currentVowel.start}
+                vowel='e'
+              />
+              <ModalVowel
+                id={Igloo}
+                image={Igloo}
+                audio={IglooAudio}
+                alt="Iglu"
+                text={textIgloo}
+                firstVowel={firstIup}
+                correct={this.state.currentVowel.start}
+                vowel='i'
+              />
+              <ModalVowel
+                id={Ambulance}
+                image={Ambulance}
+                audio={AmbulanceAudio}
+                alt="Ambulancia"
+                text={textAmbulance}
+                firstVowel={firstA}
+                correct={this.state.currentVowel.start}
+                vowel='a'
+              />
+              <ModalVowel
+                id={Hedgehog}
+                image={Hedgehog}
+                audio={HedgehogAudio}
+                alt="Erizo"
+                text={textHedgehog}
+                firstVowel={firstE}
+                correct={this.state.currentVowel.start}
+                vowel='e'
+              />
+              <ModalVowel
+                id={Bee}
+                image={Bee}
+                audio={BeeAudio}
+                alt="Aveja"
+                text={textBee}
+                firstVowel={firstAup}
+                correct={this.state.currentVowel.start}
+                vowel='a'
+              />
+              <ModalVowel
+                id={Iguana}
+                image={Iguana}
+                audio={IguanaAudio}
+                alt="Iguana"
+                text={textIguana}
+                firstVowel={firstIup}
+                correct={this.state.currentVowel.start}
+                vowel='i'
+              />
+            </div>
+          }
           <div className="content-menu vowel-start">
             <ButtonBack go="/vowel-start" />
-            <ButtonNext go="/vowel-start-game" />
+            <ButtonNext go="/vowel-final" />
           </div>
           <audio id="VowelStartAudioId" name="VowelStartAudioAId">
             <source src={VowelStartAudio} type="audio/mpeg" />
