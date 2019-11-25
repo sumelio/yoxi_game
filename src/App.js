@@ -14,6 +14,7 @@ const App = props => (
         <Route exact path="/" component={IntroPage} />
         <Route exact path="/menu-game" component={MenuGame} />
         <Route exact path="/vowel-start" component={VowelStart} />
+        <Route exact path="/vowel-start-game/:vowel" component={VowelStartGame} />
         <Route exact path="/vowel-start-game" component={VowelStartGame} />
         <Route exact path="/vowel-final" component={VowelFinal} />
       </div>
