@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import VowelStartAudio from "../../assets/sound/vowel-first.mp3";
 import GameStartA from "../../assets/sound/game-start-a.mp3";
@@ -23,7 +23,6 @@ import Osound from "../../assets/sound/Oo.mp3";
 import u from "../../assets/image/u.png";
 import Usound from "../../assets/sound/Uu.mp3";
 import yoxi from "../../assets/image/yoxi.png";
-
 
 import RainBow from "../../assets/image/rainbow.png";
 import RainBowAudio from "../../assets/sound/rainbow.mp3";
@@ -50,7 +49,6 @@ import GrapesAudio from "../../assets/sound/grapes.mp3";
 import textGrapes from "../../assets/image/text-grapes.png";
 import firstU from "../../assets/image/red-u.png";
 
-
 import Uniform from "../../assets/image/uniform.png";
 import UniformAudio from "../../assets/sound/uniform.mp3";
 import textUniform from "../../assets/image/text-uniform.png";
@@ -73,7 +71,6 @@ import IglooAudio from "../../assets/sound/igloo.mp3";
 import textIgloo from "../../assets/image/text-gloo.png";
 import firstIup from "../../assets/image/red-i-up.png";
 
-
 import Ambulance from "../../assets/image/ambulance.png";
 import AmbulanceAudio from "../../assets/sound/ambulance.mp3";
 import textAmbulance from "../../assets/image/text-ambulance.png";
@@ -91,23 +88,272 @@ import Iguana from "../../assets/image/iguana.png";
 import IguanaAudio from "../../assets/sound/iguana.mp3";
 import textIguana from "../../assets/image/text-iguana.png";
 
-
-
 import ButtonNext from "../../components/button-next";
 import ModalVowel from "../../components/modal-vowel";
 
 class VowelStartGame extends Component {
-  
-
   constructor(props) {
     super(props);
     this.state = {
       vowels: [
-        { img: a, vowelSound: Asound, sound: 'VowelStartGameAudioA', start: 'a' },
-        { img: e, vowelSound: Esound, sound: 'VowelStartGameAudioE', start: 'e'  },
-        { img: i, vowelSound: Isound, sound: 'VowelStartGameAudioI', start: 'i'  },
-        { img: o, vowelSound: Osound, sound: 'VowelStartGameAudioO', start: 'o'  },
-        { img: u, vowelSound: Usound, sound: 'VowelStartGameAudioU', start: 'u'  }
+        {
+          img: a,
+          vowelSound: Asound,
+          sound: "VowelStartGameAudioA",
+          start: "a"
+        },
+        {
+          img: e,
+          vowelSound: Esound,
+          sound: "VowelStartGameAudioE",
+          start: "e"
+        },
+        {
+          img: i,
+          vowelSound: Isound,
+          sound: "VowelStartGameAudioI",
+          start: "i"
+        },
+        {
+          img: o,
+          vowelSound: Osound,
+          sound: "VowelStartGameAudioO",
+          start: "o"
+        },
+        {
+          img: u,
+          vowelSound: Usound,
+          sound: "VowelStartGameAudioU",
+          start: "u"
+        }
+      ],
+      modelVowels: [
+        {
+          image: RainBow,
+          audio: RainBowAudio,
+          alt: "Arcoíris",
+          text: textArcoiris,
+          firstVowel: firstA,
+          vowel: "a"
+        },
+        {
+          image: Magnet,
+          audio: MagentAudio,
+          alt: "Iman",
+          text: textIman,
+          firstVowel: firstI,
+          vowel: "i"
+        },
+        {
+          image: Bear,
+          audio: BearAudio,
+          alt: "Oso",
+          text: textBear,
+          firstVowel: firstO,
+          vowel: "o"
+        },
+        {
+          image: Grapes,
+          audio: GrapesAudio,
+          alt: "Uvas",
+          text: textGrapes,
+          firstVowel: firstU,
+          vowel: "u"
+        },
+        {
+          image: Elephan,
+          audio: ElephanAudio,
+          alt: "Elefante",
+          text: textElephan,
+          firstVowel: firstE,
+          vowel: "e"
+        },
+        {
+          image: Uniform,
+          audio: UniformAudio,
+          alt: "Uniforme",
+          text: textUniform,
+          firstVowel: firstU,
+          vowel: "u"
+        },
+        {
+          image: Sheep,
+          audio: SheepAudio,
+          alt: "Oveja",
+          text: textSheep,
+          firstVowel: firstOup,
+          vowel: "o"
+        },
+        {
+          image: Indian,
+          audio: IndianAudio,
+          alt: "Indio",
+          text: textIndian,
+          firstVowel: firstI,
+          vowel: "i"
+        },
+        {
+          image: Star,
+          audio: StarAudio,
+          alt: "Estrella",
+          text: textStar,
+          firstVowel: firstE,
+          vowel: "e"
+        },
+        {
+          image: Igloo,
+          audio: IglooAudio,
+          alt: "Iglu",
+          text: textIgloo,
+          firstVowel: firstIup,
+          vowel: "i"
+        },
+        {
+          image: Ambulance,
+          audio: AmbulanceAudio,
+          alt: "Ambulancia",
+          text: textAmbulance,
+          firstVowel: firstA,
+          vowel: "a"
+        },
+        {
+          image: Hedgehog,
+          audio: HedgehogAudio,
+          alt: "Erizo",
+          text: textHedgehog,
+          firstVowel: firstE,
+          vowel: "e"
+        },
+        {
+          image: Bee,
+          audio: BeeAudio,
+          alt: "Aveja",
+          text: textBee,
+          firstVowel: firstAup,
+          vowel: "a"
+        },
+        {
+          image: Iguana,
+          audio: IguanaAudio,
+          alt: "Iguana",
+          text: textIguana,
+          firstVowel: firstIup,
+          vowel: "i"
+        }
+      ],
+      currentModelVowel: [
+        {
+          image: RainBow,
+          audio: RainBowAudio,
+          alt: "Arcoíris",
+          text: textArcoiris,
+          firstVowel: firstA,
+          vowel: "a"
+        },
+        {
+          image: Magnet,
+          audio: MagentAudio,
+          alt: "Iman",
+          text: textIman,
+          firstVowel: firstI,
+          vowel: "i"
+        },
+        {
+          image: Bear,
+          audio: BearAudio,
+          alt: "Oso",
+          text: textBear,
+          firstVowel: firstO,
+          vowel: "o"
+        },
+        {
+          image: Grapes,
+          audio: GrapesAudio,
+          alt: "Uvas",
+          text: textGrapes,
+          firstVowel: firstU,
+          vowel: "u"
+        },
+        {
+          image: Elephan,
+          audio: ElephanAudio,
+          alt: "Elefante",
+          text: textElephan,
+          firstVowel: firstE,
+          vowel: "e"
+        },
+        {
+          image: Uniform,
+          audio: UniformAudio,
+          alt: "Uniforme",
+          text: textUniform,
+          firstVowel: firstU,
+          vowel: "u"
+        },
+        {
+          image: Sheep,
+          audio: SheepAudio,
+          alt: "Oveja",
+          text: textSheep,
+          firstVowel: firstOup,
+          vowel: "o"
+        },
+        {
+          image: Indian,
+          audio: IndianAudio,
+          alt: "Indio",
+          text: textIndian,
+          firstVowel: firstI,
+          vowel: "i"
+        },
+        {
+          image: Star,
+          audio: StarAudio,
+          alt: "Estrella",
+          text: textStar,
+          firstVowel: firstE,
+          vowel: "e"
+        },
+        {
+          image: Igloo,
+          audio: IglooAudio,
+          alt: "Iglu",
+          text: textIgloo,
+          firstVowel: firstIup,
+          vowel: "i"
+        },
+        {
+          image: Ambulance,
+          audio: AmbulanceAudio,
+          alt: "Ambulancia",
+          text: textAmbulance,
+          firstVowel: firstA,
+          vowel: "a"
+        },
+        {
+          image: Hedgehog,
+          audio: HedgehogAudio,
+          alt: "Erizo",
+          text: textHedgehog,
+          firstVowel: firstE,
+          vowel: "e"
+        },
+        {
+          image: Bee,
+          audio: BeeAudio,
+          alt: "Aveja",
+          text: textBee,
+          firstVowel: firstAup,
+          vowel: "a"
+        },
+        {
+          image: Iguana,
+          audio: IguanaAudio,
+          alt: "Iguana",
+          text: textIguana,
+          firstVowel: firstIup,
+          vowel: "i"
+        }
       ],
       currentVowel: null,
       show: false
@@ -116,26 +362,37 @@ class VowelStartGame extends Component {
     // Este enlace es necesario para hacer que `this` funcione en el callback
     this.handleOnMouseOverGame = this.handleOnMouseOverGame.bind(this);
     this.startGame = this.startGame.bind(this);
+    this.addAudios = this.addAudios.bind(this);
   }
 
-  componentDidMount() { 
-    const { match: { params } } = this.props;
-    this.startGame((params && params.vowel) ? params.vowel: null);    
+  componentDidMount() {
+    const {
+      match: { params }
+    } = this.props;
+    this.startGame(params && params.vowel ? params.vowel : null);
   }
 
   startGame(vowel) {
-    const currentVowel = (vowel) ? this.getVowelByStart(vowel) : this.getNext();
+    const currentVowel = vowel ? this.getVowelByStart(vowel) : this.getNext();
+    
+    const currentModelVowel = this.state.modelVowels.slice().filter(i => i.vowel === currentVowel.start);
+
+    while (currentModelVowel.length <= 5) {
+      const item = this.state.modelVowels.filter(i => i.vowel !== currentVowel.start)[0];
+      currentModelVowel.push(item);
+    }
+
 
     this.setState({
-      currentVowel: currentVowel
+      currentVowel: currentVowel,
+      currentModelVowel: currentModelVowel
     });
 
     if (currentVowel && currentVowel.sound) {
-   
       setTimeout(() => {
         document.getElementById(currentVowel.sound).play();
         //this.handleOnMouseOverGame()
-      }, 1000)
+      }, 1000);
 
       setTimeout(() => {
         document.getElementById(currentVowel.sound).play();
@@ -144,17 +401,18 @@ class VowelStartGame extends Component {
           show: true
         });
       }, 4000);
-
     }
   }
 
-  handleOnMouseOverGame () {
-    if (this.state.currentVowel &&
+  handleOnMouseOverGame() {
+    if (
+      this.state.currentVowel &&
       this.state.currentVowel.sound &&
-      document.getElementById(this.state.currentVowel.sound)) {
-       document.getElementById(this.state.currentVowel.sound).play();
+      document.getElementById(this.state.currentVowel.sound)
+    ) {
+      document.getElementById(this.state.currentVowel.sound).play();
     }
-  };
+  }
 
   getNext() {
     const vowelCurrent = this.state.vowels[this.getRandomInt(0, 5)];
@@ -170,258 +428,113 @@ class VowelStartGame extends Component {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  startGameVowel(v) {
-    alert(v);
-  }
-  paintVowel(v,c,f) {
+  addAudios = () => {
     return (
-      <div onClick={f} >
-                   <Vowel className={v.start !== c.start && 'filter'}
-                   vowel={v.img}
-                   id={v.start}
-                   vowelSound={v.vowelSound}
-                   size="100px" />
-                   </div>
-    )
-   }
+      <div>
+        <audio id="VowelStartAudioId" name="VowelStartAudioAId">
+          <source src={VowelStartAudio} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="VowelStartGameAudioA" name="VowelStartGameAudioA">
+          <source src={GameStartA} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="VowelStartGameAudioE" name="VowelStartGameAudioE">
+          <source src={GameStartE} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="VowelStartGameAudioI" name="VowelStartGameAudioI">
+          <source src={GameStartI} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="VowelStartGameAudioO" name="VowelStartGameAudioO">
+          <source src={GameStartO} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="VowelStartGameAudioU" name="VowelStartGameAudioU">
+          <source src={GameStartU} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    );
+  };
+  paintVowel(v, c, f) {
+    return (
+      <div onClick={f}>
+        <Vowel
+          className={v.start !== c.start && "filter"}
+          vowel={v.img}
+          id={v.start}
+          vowelSound={v.vowelSound}
+          size="100px"
+        />
+      </div>
+    );
+  }
 
   render() {
-
-    if (!this.state.currentVowel) { 
+    if (!this.state.currentVowel) {
       return (
-
         <React.Fragment>
-          
           <div className="content-menu vowel-start">
             <ButtonBack go="/vowel-start" />
             <ButtonNext go="/vowel-start-game" />
           </div>
-          <audio id="VowelStartAudioId" name="VowelStartAudioAId">
-            <source src={VowelStartAudio} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-          <audio id="VowelStartGameAudioA" name="VowelStartGameAudioA">
-            <source src={GameStartA} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-          <audio id="VowelStartGameAudioE" name="VowelStartGameAudioE">
-            <source src={GameStartE} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-          <audio id="VowelStartGameAudioI" name="VowelStartGameAudioI">
-            <source src={GameStartI} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-          <audio id="VowelStartGameAudioO" name="VowelStartGameAudioO">
-            <source src={GameStartO} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-          <audio id="VowelStartGameAudioU" name="VowelStartGameAudioU">
-            <source src={GameStartU} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
+          {this.addAudios()}
         </React.Fragment>
-      )
+      );
     }
 
-  
     if (this.state.currentVowel) {
       return (
-      
         <React.Fragment>
           <div className="content-menu vowel-start-time">
             <h1> JUGAR VOCAL INICIAL</h1>
           </div>
           <div className="start-game-title">
             <div className="two">
-              <img onClick={this.handleOnMouseOverGame} src={yoxi} className="yoxi-vowel-start" alt="Yoxi" />
-              {this.state.vowels.map( (v, i) => this.paintVowel(v,this.state.currentVowel,  () => this.startGame(v.start) ) ) }
-              
-              </div>
-          </div>
-
-          {this.state.show &&
-            <div className="start-game-options">
-              <ModalVowel
-                id={RainBow}
-                image={RainBow}
-                audio={RainBowAudio}
-                alt="Arcoíris"
-                text={textArcoiris}
-                firstVowel={firstA}
-                correct={this.state.currentVowel.start}
-                vowel='a'
+              <img
+                onClick={this.handleOnMouseOverGame}
+                src={yoxi}
+                className="yoxi-vowel-start"
+                alt="Yoxi"
               />
-              <ModalVowel
-                id={Magnet}
-                image={Magnet}
-                audio={MagentAudio}
-                alt="Iman"
-                text={textIman}
-                firstVowel={firstI}
-                correct={this.state.currentVowel.start}
-                vowel='i'
-              />
-
-              <ModalVowel
-                id={Bear}
-                image={Bear}
-                audio={BearAudio}
-                alt="Oso"
-                text={textBear}
-                firstVowel={firstO}
-                correct={this.state.currentVowel.start}
-                vowel='o'
-              />
-
-              <ModalVowel
-                id={Grapes}
-                image={Grapes}
-                audio={GrapesAudio}
-                alt="Uvas"
-                text={textGrapes}
-                firstVowel={firstU}
-                correct={this.state.currentVowel.start}
-                vowel='u'
-              />
-
-              <ModalVowel
-                id={Elephan}
-                image={Elephan}
-                audio={ElephanAudio}
-                alt="Elefante"
-                text={textElephan}
-                firstVowel={firstE}
-                correct={this.state.currentVowel.start}
-                vowel='e'
-              />
-              <ModalVowel
-                id={Uniform}
-                image={Uniform}
-                audio={UniformAudio}
-                alt="Uniforme"
-                text={textUniform}
-                firstVowel={firstU}
-                correct={this.state.currentVowel.start}
-                vowel='u'
-              />
-              <ModalVowel
-                id={Sheep}
-                image={Sheep}
-                audio={SheepAudio}
-                alt="Oveja"
-                text={textSheep}
-                firstVowel={firstOup}
-                correct={this.state.currentVowel.start}
-                vowel='o'
-              />
-              <ModalVowel
-                id={Indian}
-                image={Indian}
-                audio={IndianAudio}
-                alt="Indio"
-                text={textIndian}
-                firstVowel={firstI}
-                correct={this.state.currentVowel.start}
-                vowel='i'
-              />
-              <ModalVowel
-                id={Star}
-                image={Star}
-                audio={StarAudio}
-                alt="Estrella"
-                text={textStar}
-                firstVowel={firstE}
-                correct={this.state.currentVowel.start}
-                vowel='e'
-              />
-              <ModalVowel
-                id={Igloo}
-                image={Igloo}
-                audio={IglooAudio}
-                alt="Iglu"
-                text={textIgloo}
-                firstVowel={firstIup}
-                correct={this.state.currentVowel.start}
-                vowel='i'
-              />
-              <ModalVowel
-                id={Ambulance}
-                image={Ambulance}
-                audio={AmbulanceAudio}
-                alt="Ambulancia"
-                text={textAmbulance}
-                firstVowel={firstA}
-                correct={this.state.currentVowel.start}
-                vowel='a'
-              />
-              <ModalVowel
-                id={Hedgehog}
-                image={Hedgehog}
-                audio={HedgehogAudio}
-                alt="Erizo"
-                text={textHedgehog}
-                firstVowel={firstE}
-                correct={this.state.currentVowel.start}
-                vowel='e'
-              />
-              <ModalVowel
-                id={Bee}
-                image={Bee}
-                audio={BeeAudio}
-                alt="Aveja"
-                text={textBee}
-                firstVowel={firstAup}
-                correct={this.state.currentVowel.start}
-                vowel='a'
-              />
-              <ModalVowel
-                id={Iguana}
-                image={Iguana}
-                audio={IguanaAudio}
-                alt="Iguana"
-                text={textIguana}
-                firstVowel={firstIup}
-                correct={this.state.currentVowel.start}
-                vowel='i'
-              />
+              {this.state.vowels.map((v, i) =>
+                this.paintVowel(v, this.state.currentVowel, () =>
+                  this.startGame(v.start)
+                )
+              )}
             </div>
-          }
-          <div className="content-menu vowel-start">
-          <ButtonBack go="/vowel-start" />
-            <Link to="/vowel-start-game/u">
-            <img
-          onClick={this.handleOnClickNext}
-          src={arrowNext}
-          className="arrowNext"
-          alt="Menu"
-        />
-              </Link>
           </div>
-          <audio id="VowelStartAudioId" name="VowelStartAudioAId">
-            <source src={VowelStartAudio} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-          <audio id="VowelStartGameAudioA" name="VowelStartGameAudioA">
-            <source src={GameStartA} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-          <audio id="VowelStartGameAudioE" name="VowelStartGameAudioE">
-            <source src={GameStartE} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-          <audio id="VowelStartGameAudioI" name="VowelStartGameAudioI">
-            <source src={GameStartI} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-          <audio id="VowelStartGameAudioO" name="VowelStartGameAudioO">
-            <source src={GameStartO} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
-          <audio id="VowelStartGameAudioU" name="VowelStartGameAudioU">
-            <source src={GameStartU} type="audio/mpeg" />
-            Your browser does not support the audio element.
-        </audio>
+
+          {this.state.show && (
+            <div className="start-game-options">
+              {this.state.currentModelVowel.map(element => 
+                <ModalVowel
+                  id={element.image}
+                  image={element.image}
+                  audio={element.audio}
+                  alt={element.alt}
+                  text={element.text}
+                  firstVowel={element.firstVowel}
+                  correct={this.state.currentVowel.start}
+                  vowel={element.vowel}
+                />
+              )}
+            </div>
+          )}
+          <div className="content-menu vowel-start">
+            <ButtonBack go="/vowel-start" />
+            <Link to="/vowel-start-game/u">
+              <img
+                onClick={this.handleOnClickNext}
+                src={arrowNext}
+                className="arrowNext"
+                alt="Menu"
+              />
+            </Link>
+          </div>
+          {this.addAudios()}
         </React.Fragment>
       );
     }

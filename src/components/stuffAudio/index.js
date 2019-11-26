@@ -19,8 +19,9 @@ class StuffAudio extends Component {
     }, 100)
   }
    
-    setAnimationAndCheckWin() {
+  setAnimationAndCheckWin() {
       document.getElementById("first-vowel").classList.add("red-vowel-turn");
+      document.getElementById(this.props.id).play();
       setTimeout(() => {
         if (this.props.correct && this.props.vowel) {
           if (this.props.correct === this.props.vowel) {
@@ -60,9 +61,6 @@ class StuffAudio extends Component {
       } , 2000)
       }
     }
-      document.getElementById(this.props.id).play();
-    
-    
   };
 
   render() {
