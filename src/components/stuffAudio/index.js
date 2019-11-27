@@ -4,12 +4,14 @@ import Win from "../../assets/sound/win.mp3";
 import Fail from "../../assets/sound/fail.mp3";
 import FailImg from "../../assets//image/fail.png";
 import WinImg from "../../assets//image/win.png";
+import starsGif from "../../assets/image/stars.gif";
 
 class StuffAudio extends Component {
   state = {
     isPlaying: false,
     vowel: 'vowel',
-    showImg: null
+    showImg: null,
+    showWin: false
   };
 
   componentDidMount() {
@@ -27,7 +29,11 @@ class StuffAudio extends Component {
           if (this.props.correct === this.props.vowel) {
             setTimeout(() => {              
               if(document.getElementById(`stuffImg${this.props.id}`))
-              document.getElementById('win').play();
+                document.getElementById('win').play();
+              this.setState({
+                showWin: true
+              });
+                
             }, 2000)
             
           } else {
@@ -67,6 +73,12 @@ class StuffAudio extends Component {
     return (
       <div>
         <div>
+        { this.state.showWin && (<img
+                onClick={this.handleOnMouseOverGame}
+                src={starsGif}
+                className="yoxi-vowel-start"
+                alt="Yoxi"
+          />)}
           <img
             onClick={this.handleOnMouseOver}
             id={`stuffImg${this.props.id}`}
@@ -74,6 +86,12 @@ class StuffAudio extends Component {
             src={this.props.image}
             alt={this.props.alt}
           />
+                 { this.state.showWin && (<img
+                onClick={this.handleOnMouseOverGame}
+                src={starsGif}
+                className="yoxi-vowel-start"
+                alt="Yoxi"
+          />)}
         </div>
         
         {this.props.text && (

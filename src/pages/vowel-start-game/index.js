@@ -88,6 +88,8 @@ import Iguana from "../../assets/image/iguana.png";
 import IguanaAudio from "../../assets/sound/iguana.mp3";
 import textIguana from "../../assets/image/text-iguana.png";
 
+import starsGif from "../../assets/image/stars.gif";
+
 import ButtonNext from "../../components/button-next";
 import ModalVowel from "../../components/modal-vowel";
 
@@ -373,15 +375,71 @@ class VowelStartGame extends Component {
   }
 
   startGame(vowel) {
+    this.setState({
+      show: false
+    });
     const currentVowel = vowel ? this.getVowelByStart(vowel) : this.getNext();
-    
-    const currentModelVowel = this.state.modelVowels.slice().filter(i => i.vowel === currentVowel.start);
 
-    while (currentModelVowel.length <= 5) {
-      const item = this.state.modelVowels.filter(i => i.vowel !== currentVowel.start)[0];
-      currentModelVowel.push(item);
+    const currentModelVowel = [
+      { idle: true },
+      { idle: true },
+      { idle: true },
+      { idle: true },
+      { idle: true }
+    ];
+    let currentModelVowelWin = this.state.modelVowels
+      .slice()
+      .filter(i => i.vowel === currentVowel.start)
+      .map(i => {
+        return { ...i, used: false, idle: false };
+      });
+    while (currentModelVowelWin.filter(i => i.used === false).length > 0) {
+      const win =
+        currentModelVowelWin[this.getRandomInt(0, currentModelVowelWin.length)];
+      const index = this.getRandomInt(0, 5);
+      if (currentModelVowel[index].idle) {
+        currentModelVowel[index] = win;
+        win.used = true;
+        currentModelVowelWin = currentModelVowelWin.filter(
+          i => i.used === false
+        );
+      }
     }
 
+    let currentModelVowelFail = this.state.modelVowels
+      .slice()
+      .filter(i => i.vowel !== currentVowel.start)
+      .map(i => {
+        return { ...i, idle: true };
+      });
+
+    while (currentModelVowel.filter(i => i && i.idle).length >= 1) {
+      currentModelVowel
+        .filter(i => i && i.idle)
+        .forEach(a => {
+          const fail =
+            currentModelVowelFail[
+              this.getRandomInt(0, currentModelVowelFail.length)
+            ];
+          // debugger;
+          //
+          //a = fail
+          if (fail.idle) {
+            fail.idle = false; 
+            a.idle = false;
+            a.image = fail.image;
+            a.audio = fail.audio;
+            a.alt = fail.alt;
+            a.text = fail.text;
+            a.firstVowel = fail.firstVowel;
+            a.vowel = fail.vowel;
+          }
+          // fail.used = true;
+        });
+
+      //const item = this.state.modelVowels.filter(i => i.vowel !== currentVowel.start)[0];
+      //currentModelVowel.push(item);
+    }
 
     this.setState({
       currentVowel: currentVowel,
@@ -400,7 +458,7 @@ class VowelStartGame extends Component {
         this.setState({
           show: true
         });
-      }, 4000);
+      }, 6000);
     }
   }
 
@@ -493,12 +551,12 @@ class VowelStartGame extends Component {
           </div>
           <div className="start-game-title">
             <div className="two">
-              <img
+              {this.state.show && (<img
                 onClick={this.handleOnMouseOverGame}
                 src={yoxi}
                 className="yoxi-vowel-start"
                 alt="Yoxi"
-              />
+              />)}
               {this.state.vowels.map((v, i) =>
                 this.paintVowel(v, this.state.currentVowel, () =>
                   this.startGame(v.start)
@@ -509,7 +567,7 @@ class VowelStartGame extends Component {
 
           {this.state.show && (
             <div className="start-game-options">
-              {this.state.currentModelVowel.map(element => 
+              {this.state.currentModelVowel.map(element => (
                 <ModalVowel
                   id={element.image}
                   image={element.image}
@@ -520,9 +578,16 @@ class VowelStartGame extends Component {
                   correct={this.state.currentVowel.start}
                   vowel={element.vowel}
                 />
-              )}
+              ))}
             </div>
           )}
+               {! this.state.show && (<img
+                onClick={this.handleOnMouseOverGame}
+                src={yoxi}
+                className="yoxi-vowel-start"
+                alt="Yoxi"
+          />)}
+          
           <div className="content-menu vowel-start">
             <ButtonBack go="/vowel-start" />
             <Link to="/vowel-start-game/u">
