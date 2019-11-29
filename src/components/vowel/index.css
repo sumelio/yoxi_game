@@ -16,6 +16,12 @@
   height: 100px;
 }
 
+.yoxi-vowel-100px:hover {
+  cursor: pointer;
+  width: 110px;
+  height: 110px;
+}
+
 .yoxi-vowel-200px {
   cursor: pointer;
   width: 200px;

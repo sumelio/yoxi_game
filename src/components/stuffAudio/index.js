@@ -74,7 +74,6 @@ class StuffAudio extends Component {
       <div>
         <div>
         { this.state.showWin && (<img
-                onClick={this.handleOnMouseOverGame}
                 src={starsGif}
                 className="yoxi-vowel-start"
                 alt="Yoxi"
@@ -87,7 +86,6 @@ class StuffAudio extends Component {
             alt={this.props.alt}
           />
                  { this.state.showWin && (<img
-                onClick={this.handleOnMouseOverGame}
                 src={starsGif}
                 className="yoxi-vowel-start"
                 alt="Yoxi"

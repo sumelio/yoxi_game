@@ -29,8 +29,24 @@ code {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+  align-content: space-around;
+  padding: 10px;
+}
+.content-start-vowel {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: flex-start;
   align-content: space-around;
   padding: 20px;
+  width: 600PX;
+  justify-content: center;
+  margin: auto;
+}
+.stuff-img {
+  width: 200px;
+  cursor: pointer;
 }

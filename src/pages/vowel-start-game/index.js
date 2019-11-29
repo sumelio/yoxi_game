@@ -88,8 +88,6 @@ import Iguana from "../../assets/image/iguana.png";
 import IguanaAudio from "../../assets/sound/iguana.mp3";
 import textIguana from "../../assets/image/text-iguana.png";
 
-import starsGif from "../../assets/image/stars.gif";
-
 import ButtonNext from "../../components/button-next";
 import ModalVowel from "../../components/modal-vowel";
 
@@ -448,12 +446,16 @@ class VowelStartGame extends Component {
 
     if (currentVowel && currentVowel.sound) {
       setTimeout(() => {
-        document.getElementById(currentVowel.sound).play();
+        if(document.getElementById(currentVowel.sound)) {
+          document.getElementById(currentVowel.sound).play();
+        }
         //this.handleOnMouseOverGame()
       }, 1000);
 
       setTimeout(() => {
-        document.getElementById(currentVowel.sound).play();
+        if(document.getElementById(currentVowel.sound) ) {
+          document.getElementById(currentVowel.sound).play();
+        }
         //this.handleOnMouseOverGame()
         this.setState({
           show: true

@@ -17,6 +17,7 @@ const App = props => (
         <Route exact path="/vowel-start-game/:vowel" component={VowelStartGame} />
         <Route exact path="/vowel-start-game" component={VowelStartGame} />
         <Route exact path="/vowel-final" component={VowelFinal} />
+        
       </div>
     </BrowserRouter>
     <div className="footer-copyright">
