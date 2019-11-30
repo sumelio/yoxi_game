@@ -1,26 +1,23 @@
 import React, { Component } from "react";
 
-import VowelFinalAudio from "../../assets/sound/vowel-final.mp3";
+import rhymeWord from "../../assets/sound/rhyme_word.mp3";
 import "./index.css";
 import ButtonBack from "../../components/button-back";
 import yoxi from "../../assets/image/yoxi.png";
-import Duck from "../../assets/image/duck.png";
-import greenA from "../../assets/image/a-green.png";
-import greenE from "../../assets/image/e-green.png";
-import greenI from "../../assets/image/i-green.png";
-import greenO from "../../assets/image/o-green.png";
-import greenU from "../../assets/image/u-green.png";
+import Bone from "../../assets/image/bone.png";
+import Cheese from "../../assets/image/cheese.png";
+import wolf from "../../assets/image/wolf.png";
 
-import Asound from "../../assets/sound/Aa.mp3";
-import Esound from "../../assets/sound/Ee.mp3";
-import Isound from "../../assets/sound/Ii.mp3";
-import Osound from "../../assets/sound/Oo.mp3";
-import Usound from "../../assets/sound/Uu.mp3";
+import BoneText from "../../assets/image/bone-text.png";
+import CheeseText from "../../assets/image/cheese-text.png";
+import WolfText from "../../assets/image/wolf-text.png";
 
-import duck from "../../assets/sound/duck.mp3";
+import BoneAudio from "../../assets/sound/bone.mp3";
+import CheeseAudio from "../../assets/sound/cheese.mp3";
+import WolfAudio from "../../assets/sound/wolf.mp3";
+import WinAudio from "../../assets/sound/win.mp3";
 
 import ButtonNext from "../../components/button-next";
-import Vowel from "../../components/vowel";
 import starsGif from "../../assets/image/stars.gif";
 
 class RhymeWord extends Component {
@@ -39,19 +36,38 @@ class RhymeWord extends Component {
         isPlaying: true,
         showWin: false
       });
-      document.getElementById("VowelFinalAudioId").play();
+      document.getElementById("rhymeWordId").play();
+      setTimeout(() => {
+        document.getElementById("bone").play();
+      }, 2500);
     }
   }
 
   handleOnMouseOver = event => {
-    document.getElementById("VowelFinalAudioId").play();
+    document.getElementById("rhymeWordId").play();
+    setTimeout(() => {
+      document.getElementById("bone").play();
+    }, 2500);
   };
 
   handleOnThing = event => {
-    document.getElementById("duck").play();
+    document.getElementById("bone").play();
   };
-
-
+  handleOnCheese = event => {
+    document.getElementById("cheese").play();
+    setTimeout(() => {
+      document.getElementById("win").play();
+      this.setState({
+        showWin: true
+      });
+    }, 1000);
+  };
+  handleOnWolf = event => {
+    document.getElementById("wolf").play();
+    this.setState({
+      showWin: false
+    });
+  };
   setWin() {
     this.setState({
       showWin: true
@@ -68,86 +84,98 @@ class RhymeWord extends Component {
     return (
       <React.Fragment>
         <div className="content-menu vowel-start-time">
-          <h1>
-            <img
-              onClick={this.handleOnMouseOver}
-              src={yoxi}
-              className="yoxi-vowel-start"
-              alt="Yoxi"
-            />
-            Rima Rimando
-          </h1>
+          <h1>Rima Rimando</h1>
         </div>
-        <div className="content-start-vowel-stauff">
-          {this.state.showWin && (
-            <img
-              onClick={this.handleOnMouseOverGame}
-              src={starsGif}
-              className="yoxi-vowel-start"
-              alt="Yoxi"
-            />
-          )}
-          <img className="stuff-img"
-            onClick={this.handleOnThing}
-            src={Duck} alt="Pato" />
-          {this.state.showWin && (
-            <img
-              onClick={this.handleOnMouseOverGame}
-              src={starsGif}
-              className="yoxi-vowel-start"
-              alt="Yoxi"
-            />
-          )}
-        </div>
-        <div className="content-start-vowel">
-          <Vowel
-            vowel={greenA}
-            id="a"
-            vowelSound={Asound}
-            size="100px"
-            setFail={this.setFail}
-          />
-          <Vowel
-            vowel={greenE}
-            id="e"
-            vowelSound={Esound}
-            size="100px"
-            setFail={this.setFail}
-          />
-          <Vowel
-            vowel={greenI}
-            id="i"
-            vowelSound={Isound}
-            size="100px"
-            setFail={this.setFail}
-          />
-          <Vowel
-            vowel={greenO}
-            id="o"
-            vowelSound={Osound}
-            size="100px"
-            setFail={this.setFail}
-            setWin={this.setWin}
-            win={true}
-          />
-          <Vowel
-            vowel={greenU}
-            id="U"
-            vowelSound={Usound}
-            size="100px"
-            setFail={this.setFail}
-          />
+        <div className="content-rhyme">
+          <div className="content-start-vowel-stauff">
+
+            <div className="content-rhyme-item">
+              <img
+                className="stuff-img"
+                onClick={this.handleOnThing}
+                src={Bone}
+                alt="Hueso"
+              />
+              <img
+                className="stuff-img"
+                onClick={this.handleOnThing}
+                src={BoneText}
+                alt="Hueso"
+              />
+            </div>
+          </div>
+          <div className="content-rhyme-options">
+            <div>
+              <img
+                onClick={this.handleOnMouseOver}
+                src={yoxi}
+                className="yoxi-vowel-rhyme"
+                alt="Yoxi"
+              />
+            </div>
+          </div>
+          <div className="content-rhyme-options">
+            <div className="content-win">
+           
+              <div className="content-rhyme-item">
+                <img
+                  className="stuff-img"
+                  onClick={this.handleOnCheese}
+                  src={Cheese}
+                  alt="Queso"
+                />
+                <img
+                  className="stuff-img"
+                  onClick={this.handleOnCheese}
+                  src={CheeseText}
+                  alt="Queso"
+                />
+              </div>
+              {this.state.showWin && (
+              <img className="stuff-img"
+                onClick={this.handleOnMouseOverGame}
+                src={starsGif}
+                alt="Yoxi"
+              />
+            )}
+            </div>
+            <div className="content-rhyme-item">
+              <img
+                className="stuff-img"
+                onClick={this.handleOnWolf}
+                src={wolf}
+                alt="Lobo"
+              />
+              <img
+                className="stuff-img"
+                onClick={this.handleOnWolf}
+                src={WolfText}
+                alt="Lobo"
+              />
+            </div>
+          </div>
         </div>
         <div className="content-menu vowel-start">
-          <ButtonBack go="/vowel-start-game" />
-          <ButtonNext go="/vowel-start-game" />
+          <ButtonBack go="/menu-game" />
         </div>
-        <audio id="VowelFinalAudioId" name="VowelFinalAudioId">
-          <source src={VowelFinalAudio} type="audio/mpeg" />
+        <audio id="rhymeWordId" name="rhymeWordId">
+          <source src={rhymeWord} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
-        <audio id="duck" name="duck">
-          <source src={duck} type="audio/mpeg" />
+        <audio id="bone" name="bone">
+          <source src={BoneAudio} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="cheese" name="cheese">
+          <source src={CheeseAudio} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="wolf" name="wolf">
+          <source src={WolfAudio} type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="win" name="win">
+          <source src={WinAudio} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       </React.Fragment>

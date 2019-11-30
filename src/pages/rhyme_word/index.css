@@ -11,6 +11,14 @@ body {
   max-height: 10rem;
   cursor: pointer;
 }
+
+.yoxi-vowel-rhyme {
+  max-width: 10rem;
+  max-height: 10rem;
+  cursor: pointer;
+  padding: 100px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -49,4 +57,32 @@ code {
 .stuff-img {
   width: 160px;
   cursor: pointer;
+}
+
+.content-rhyme {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+.content-rhyme-item {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+  align-content: stretch;
+  
+  padding-bottom: 60px;
+}
+
+.content-win {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
 }
