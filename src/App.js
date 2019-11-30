@@ -6,6 +6,7 @@ import MenuGame from "./pages/menu-game";
 import VowelStart from "./pages/vowel-start";
 import VowelStartGame from "./pages/vowel-start-game";
 import VowelFinal from "./pages/vowel-final";
+import RhymeWord from "./pages/rhyme_word";
 
 const App = props => (
   <React.Fragment>
@@ -17,6 +18,8 @@ const App = props => (
         <Route exact path="/vowel-start-game/:vowel" component={VowelStartGame} />
         <Route exact path="/vowel-start-game" component={VowelStartGame} />
         <Route exact path="/vowel-final" component={VowelFinal} />
+        <Route exact path="/rhyme-Word" component={RhymeWord} />
+        
         
       </div>
     </BrowserRouter>
