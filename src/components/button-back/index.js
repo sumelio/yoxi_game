@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Redirect } from "react-router";
 
 import NextAudio from "../../assets/sound/next.mp3";
@@ -42,5 +43,9 @@ class ButtonBack extends Component {
     );
   }
 }
+
+ButtonBack.propTypes = {
+  go: PropTypes.string.isRequired
+};
 
 export default ButtonBack;

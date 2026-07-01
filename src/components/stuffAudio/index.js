@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./index.css";
 import Win from "../../assets/sound/win.mp3";
 import Fail from "../../assets/sound/fail.mp3";
@@ -123,5 +124,21 @@ class StuffAudio extends Component {
     );
   }
 }
+
+StuffAudio.propTypes = {
+  id: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  audio: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  size: PropTypes.string,
+  correct: PropTypes.string,
+  vowel: PropTypes.string,
+  text: PropTypes.string,
+  firstVowel: PropTypes.string
+};
+
+StuffAudio.defaultProps = {
+  size: "8px"
+};
 
 export default StuffAudio;

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import UIfx from "uifx";
 
@@ -25,5 +26,10 @@ class MenuItem extends Component {
     );
   }
 }
+
+MenuItem.propTypes = {
+  label: PropTypes.string.isRequired,
+  go: PropTypes.string.isRequired
+};
 
 export default MenuItem;

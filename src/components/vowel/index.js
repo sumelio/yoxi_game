@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import UIfx from "uifx";
 import EnterAudio from "../../assets/sound/enter.mp3";
 import Win from "../../assets/sound/win.mp3";
@@ -65,5 +66,22 @@ class Vowel extends Component {
     );
   }
 }
+
+Vowel.propTypes = {
+  id: PropTypes.string.isRequired,
+  vowel: PropTypes.string.isRequired,
+  vowelSound: PropTypes.string.isRequired,
+  size: PropTypes.string,
+  className: PropTypes.string,
+  win: PropTypes.bool,
+  setWin: PropTypes.func,
+  setFail: PropTypes.func
+};
+
+Vowel.defaultProps = {
+  size: "100px",
+  className: "",
+  win: false
+};
 
 export default Vowel;

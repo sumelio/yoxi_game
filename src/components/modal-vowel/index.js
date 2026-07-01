@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./index.css";
 import Modal from "../modal";
 import StuffAudio from "../stuffAudio";
@@ -39,5 +40,16 @@ class ModalVowel extends Component {
     );
   }
 }
+
+ModalVowel.propTypes = {
+  id: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  audio: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  text: PropTypes.string,
+  firstVowel: PropTypes.string,
+  correct: PropTypes.string,
+  vowel: PropTypes.string
+};
 
 export default ModalVowel;
