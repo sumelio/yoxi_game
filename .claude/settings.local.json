@@ -9,7 +9,14 @@
       "Bash(npm install:*)",
       "Bash(npm start)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git rm:*)",
+      "Bash(git checkout:*)",
+      "Bash(git push:*)",
+      "Bash(npm audit:*)",
+      "Bash(npm view:*)",
+      "Bash(npx patch-package:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
