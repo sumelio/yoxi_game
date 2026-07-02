@@ -6,119 +6,103 @@ import Fail from "../../assets/sound/fail.mp3";
 import FailImg from "../../assets//image/fail.png";
 import starsGif from "../../assets/image/stars.gif";
 
+import { playSound } from "../../utils/audioManager";
+
 class StuffAudio extends Component {
-  state = {
-    isPlaying: false,
-    vowel: 'vowel',
-    showImg: null,
-    showWin: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      showWin: false,
+      showFail: false,
+      turnVowel: false
+    };
+    this.timeouts = [];
+  }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.props.text && 
-      this.setAnimationAndCheckWin()
-    }, 100)
+    if (this.props.text) {
+      this.addTimeout(() => this.setAnimationAndCheckWin(), 100);
+    }
   }
-   
-  setAnimationAndCheckWin() {
-      document.getElementById("first-vowel").classList.add("red-vowel-turn");
-      document.getElementById(this.props.id).play();
-      setTimeout(() => {
-        if (this.props.correct && this.props.vowel) {
-          if (this.props.correct === this.props.vowel) {
-            setTimeout(() => {              
-              if(document.getElementById(`stuffImg${this.props.id}`))
-                document.getElementById('win').play();
-              this.setState({
-                showWin: true
-              });
-                
-            }, 2000)
-            
-          } else {
-            setTimeout(() => {
-              
-              document.getElementById('fail').play();
-              if(document.getElementById(`stuffImg${this.props.id}`))
-              document.getElementById(`stuffImg${this.props.id}`).src = FailImg;
-            } , 2000)
-            
-          }
-        }
-        
-      }, 1000);  
-      
-      return true;
-   }
 
-  handleOnMouseOver = () => {
+  componentWillUnmount() {
+    // Limpia todos los timeouts para evitar setState tras desmontar
+    this.timeouts.forEach(clearTimeout);
+    this.timeouts = [];
+  }
+
+  addTimeout(fn, delay) {
+    this.timeouts.push(setTimeout(fn, delay));
+  }
+
+  setAnimationAndCheckWin() {
+    this.setState({ turnVowel: true });
+    playSound(this.props.audio);
+
+    this.addTimeout(() => {
+      if (this.props.correct && this.props.vowel) {
+        if (this.props.correct === this.props.vowel) {
+          this.addTimeout(() => {
+            playSound(Win);
+            this.setState({ showWin: true });
+          }, 2000);
+        } else {
+          this.addTimeout(() => {
+            playSound(Fail);
+            this.setState({ showFail: true });
+          }, 2000);
+        }
+      }
+    }, 1000);
+  }
+
+  handleOnClick = () => {
     if (this.props.correct && this.props.vowel) {
-      if (this.props.correct === this.props.vowel) {
-        
-      } else {
-        setTimeout( () => {
-        this.setState({
-          showImg: FailImg
-        })
-        //document.getElementById('fail').play();
-        document.getElementById(`stuffImg${this.props.id}`).src = FailImg;
-      
-      } , 2000)
+      if (this.props.correct !== this.props.vowel) {
+        this.addTimeout(() => {
+          this.setState({ showFail: true });
+        }, 2000);
       }
     }
   };
 
   render() {
+    const imageSrc = this.state.showFail ? FailImg : this.props.image;
+
     return (
       <div>
         <div>
-        { this.state.showWin && (<img
-                src={starsGif}
-                className="yoxi-vowel-start"
-                alt="Yoxi"
-          />)}
+          {this.state.showWin && (
+            <img src={starsGif} className="yoxi-vowel-start" alt="Estrellas" />
+          )}
           <img
-            onClick={this.handleOnMouseOver}
+            onClick={this.handleOnClick}
             id={`stuffImg${this.props.id}`}
             className={`stuff-image-${this.props.size}`}
-            src={this.props.image}
+            src={imageSrc}
             alt={this.props.alt}
           />
-                 { this.state.showWin && (<img
-                src={starsGif}
-                className="yoxi-vowel-start"
-                alt="Yoxi"
-          />)}
+          {this.state.showWin && (
+            <img src={starsGif} className="yoxi-vowel-start" alt="Estrellas" />
+          )}
         </div>
-        
+
         {this.props.text && (
           <div className="word">
-            <img className='red-vowel'
-              id="first-vowel"
-            onClick={this.handleOnMouseOver}
-            src={this.props.firstVowel}
+            <img
+              className={`red-vowel${this.state.turnVowel ? " red-vowel-turn" : ""}`}
+              onClick={this.handleOnClick}
+              src={this.props.firstVowel}
               alt={this.props.alt}
-              
-          />
-            <img className='text-vowel'
-              onClick={this.handleOnMouseOver}
+            />
+            <img
+              className="text-vowel"
+              onClick={this.handleOnClick}
               src={this.props.text}
               alt={this.props.alt}
             />
-            </div>          )}
-        <audio id={this.props.id} name={this.props.id}>
-          <source src={this.props.audio} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-        <audio id='win' name='win'>
-          <source src={Win} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-        <audio id='fail' name='fail'>
-          <source src={Fail} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
+          </div>
+        )}
       </div>
     );
   }

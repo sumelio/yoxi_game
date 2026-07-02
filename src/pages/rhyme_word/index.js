@@ -19,65 +19,56 @@ import WinAudio from "../../assets/sound/win.mp3";
 
 import starsGif from "../../assets/image/stars.gif";
 
+import { playSound } from "../../utils/audioManager";
+
 class RhymeWord extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPlaying: false,
       showWin: false
     };
-    this.setWin = this.setWin.bind(this);
-    this.setFail = this.setFail.bind(this);
-  }
-  componentDidMount() {
-    if (!this.state.isPlaying) {
-      this.setState({
-        isPlaying: true,
-        showWin: false
-      });
-      document.getElementById("rhymeWordId").play();
-      setTimeout(() => {
-        document.getElementById("bone").play();
-      }, 2500);
-    }
+    this.timeouts = [];
   }
 
-  handleOnMouseOver = event => {
-    document.getElementById("rhymeWordId").play();
-    setTimeout(() => {
-      document.getElementById("bone").play();
+  componentDidMount() {
+    playSound(rhymeWord);
+    this.addTimeout(() => {
+      playSound(BoneAudio);
+    }, 2500);
+  }
+
+  componentWillUnmount() {
+    this.timeouts.forEach(clearTimeout);
+    this.timeouts = [];
+  }
+
+  addTimeout(fn, delay) {
+    this.timeouts.push(setTimeout(fn, delay));
+  }
+
+  handleOnClickYoxi = () => {
+    playSound(rhymeWord);
+    this.addTimeout(() => {
+      playSound(BoneAudio);
     }, 2500);
   };
 
-  handleOnThing = event => {
-    document.getElementById("bone").play();
+  handleOnBone = () => {
+    playSound(BoneAudio);
   };
-  handleOnCheese = event => {
-    document.getElementById("cheese").play();
-    setTimeout(() => {
-      document.getElementById("win").play();
-      this.setState({
-        showWin: true
-      });
+
+  handleOnCheese = () => {
+    playSound(CheeseAudio);
+    this.addTimeout(() => {
+      playSound(WinAudio);
+      this.setState({ showWin: true });
     }, 1000);
   };
-  handleOnWolf = event => {
-    document.getElementById("wolf").play();
-    this.setState({
-      showWin: false
-    });
-  };
-  setWin() {
-    this.setState({
-      showWin: true
-    });
-  }
 
-  setFail() {
-    this.setState({
-      showWin: false
-    });
-  }
+  handleOnWolf = () => {
+    playSound(WolfAudio);
+    this.setState({ showWin: false });
+  };
 
   render() {
     return (
@@ -87,17 +78,16 @@ class RhymeWord extends Component {
         </div>
         <div className="content-rhyme">
           <div className="content-start-vowel-stauff">
-
             <div className="content-rhyme-item">
               <img
                 className="stuff-img"
-                onClick={this.handleOnThing}
+                onClick={this.handleOnBone}
                 src={Bone}
                 alt="Hueso"
               />
               <img
                 className="stuff-img"
-                onClick={this.handleOnThing}
+                onClick={this.handleOnBone}
                 src={BoneText}
                 alt="Hueso"
               />
@@ -106,7 +96,7 @@ class RhymeWord extends Component {
           <div className="content-rhyme-options">
             <div>
               <img
-                onClick={this.handleOnMouseOver}
+                onClick={this.handleOnClickYoxi}
                 src={yoxi}
                 className="yoxi-vowel-rhyme"
                 alt="Yoxi"
@@ -115,7 +105,6 @@ class RhymeWord extends Component {
           </div>
           <div className="content-rhyme-options">
             <div className="content-win">
-           
               <div className="content-rhyme-item">
                 <img
                   className="stuff-img"
@@ -131,12 +120,8 @@ class RhymeWord extends Component {
                 />
               </div>
               {this.state.showWin && (
-              <img className="stuff-img"
-                onClick={this.handleOnMouseOverGame}
-                src={starsGif}
-                alt="Yoxi"
-              />
-            )}
+                <img className="stuff-img" src={starsGif} alt="Estrellas" />
+              )}
             </div>
             <div className="content-rhyme-item">
               <img
@@ -157,26 +142,6 @@ class RhymeWord extends Component {
         <div className="content-menu vowel-start">
           <ButtonBack go="/menu-game" />
         </div>
-        <audio id="rhymeWordId" name="rhymeWordId">
-          <source src={rhymeWord} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-        <audio id="bone" name="bone">
-          <source src={BoneAudio} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-        <audio id="cheese" name="cheese">
-          <source src={CheeseAudio} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-        <audio id="wolf" name="wolf">
-          <source src={WolfAudio} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-        <audio id="win" name="win">
-          <source src={WinAudio} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
       </React.Fragment>
     );
   }

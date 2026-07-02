@@ -23,45 +23,36 @@ import ButtonNext from "../../components/button-next";
 import Vowel from "../../components/vowel";
 import starsGif from "../../assets/image/stars.gif";
 
+import { playSound } from "../../utils/audioManager";
+
 class VowelFinal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPlaying: false,
       showWin: false
     };
     this.setWin = this.setWin.bind(this);
     this.setFail = this.setFail.bind(this);
   }
+
   componentDidMount() {
-    if (!this.state.isPlaying) {
-      this.setState({
-        isPlaying: true,
-        showWin: false
-      });
-      document.getElementById("VowelFinalAudioId").play();
-    }
+    playSound(VowelFinalAudio);
   }
 
-  handleOnMouseOver = event => {
-    document.getElementById("VowelFinalAudioId").play();
+  handleOnClickYoxi = () => {
+    playSound(VowelFinalAudio);
   };
 
-  handleOnThing = event => {
-    document.getElementById("duck").play();
+  handleOnClickDuck = () => {
+    playSound(duck);
   };
-
 
   setWin() {
-    this.setState({
-      showWin: true
-    });
+    this.setState({ showWin: true });
   }
 
   setFail() {
-    this.setState({
-      showWin: false
-    });
+    this.setState({ showWin: false });
   }
 
   render() {
@@ -70,7 +61,7 @@ class VowelFinal extends Component {
         <div className="content-menu vowel-start-time">
           <h1>
             <img
-              onClick={this.handleOnMouseOver}
+              onClick={this.handleOnClickYoxi}
               src={yoxi}
               className="yoxi-vowel-start"
               alt="Yoxi"
@@ -80,23 +71,16 @@ class VowelFinal extends Component {
         </div>
         <div className="content-start-vowel-stauff">
           {this.state.showWin && (
-            <img
-              onClick={this.handleOnMouseOverGame}
-              src={starsGif}
-              className="yoxi-vowel-start"
-              alt="Yoxi"
-            />
+            <img src={starsGif} className="yoxi-vowel-start" alt="Estrellas" />
           )}
-          <img className="stuff-img"
-            onClick={this.handleOnThing}
-            src={Duck} alt="Pato" />
+          <img
+            className="stuff-img"
+            onClick={this.handleOnClickDuck}
+            src={Duck}
+            alt="Pato"
+          />
           {this.state.showWin && (
-            <img
-              onClick={this.handleOnMouseOverGame}
-              src={starsGif}
-              className="yoxi-vowel-start"
-              alt="Yoxi"
-            />
+            <img src={starsGif} className="yoxi-vowel-start" alt="Estrellas" />
           )}
         </div>
         <div className="content-start-vowel">
@@ -132,7 +116,7 @@ class VowelFinal extends Component {
           />
           <Vowel
             vowel={greenU}
-            id="U"
+            id="u"
             vowelSound={Usound}
             size="100px"
             setFail={this.setFail}
@@ -142,14 +126,6 @@ class VowelFinal extends Component {
           <ButtonBack go="/vowel-start-game" />
           <ButtonNext go="/vowel-start-game" />
         </div>
-        <audio id="VowelFinalAudioId" name="VowelFinalAudioId">
-          <source src={VowelFinalAudio} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-        <audio id="duck" name="duck">
-          <source src={duck} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
       </React.Fragment>
     );
   }

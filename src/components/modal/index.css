@@ -10,13 +10,21 @@
 .modal > .close {
   cursor: pointer;
   position: absolute;
-  display: block;
-  padding: 3px 6px;
-  line-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Área táctil mínima 44x44px (WCAG) */
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  line-height: 1;
   right: -12px;
   top: -12px;
-  font-size: 36px;
+  font-size: 32px;
+  font-family: inherit;
+  color: var(--color-text);
   background: #ffffff;
-  border-radius: 27px;
+  border-radius: var(--radius-full);
   border: 1px solid #cfcece;
+  box-shadow: var(--shadow-soft);
 }

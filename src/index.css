@@ -68,3 +68,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Accesibilidad: respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Foco visible para navegación por teclado */
+[role='button']:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 2px;
+}

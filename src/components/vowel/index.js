@@ -5,62 +5,66 @@ import EnterAudio from "../../assets/sound/enter.mp3";
 import Win from "../../assets/sound/win.mp3";
 import Fail from "../../assets/sound/fail.mp3";
 
+import { playSound } from "../../utils/audioManager";
+
 import "./index.css";
 
 class Vowel extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showWin: false
-    };
+    this.timeoutId = null;
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
-  handleOnClick(e) {
-    this.enterAudio = new UIfx(EnterAudio, { volume: 1.0 });
-    this.enterAudio.play(1.0);
-    document.getElementById(this.props.id).play();
-
-    if (this.props.win && this.props.setWin) {
-      setTimeout(() => {
-        document.getElementById("win").play();
-        this.props.setWin();
-      }, 2000);
-    } else {
-      if (this.props.setFail) {
-        setTimeout(() => {
-          document.getElementById("fail").play();
-          this.props.setFail();
-        }, 2000);
-      }
+  componentWillUnmount() {
+    // Evita setState/reproducción sobre un componente desmontado
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
     }
   }
+
+  handleOnClick() {
+    this.enterAudio = new UIfx(EnterAudio, { volume: 1.0 });
+    this.enterAudio.play(1.0);
+    playSound(this.props.vowelSound);
+
+    if (this.props.win && this.props.setWin) {
+      this.timeoutId = setTimeout(() => {
+        playSound(Win);
+        this.props.setWin();
+      }, 2000);
+    } else if (this.props.setFail) {
+      this.timeoutId = setTimeout(() => {
+        playSound(Fail);
+        this.props.setFail();
+      }, 2000);
+    }
+  }
+
+  handleKeyDown(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      this.handleOnClick();
+    }
+  }
+
   render() {
     return (
       <div
         id={`${this.props.id}-content`}
         onClick={this.handleOnClick}
+        onKeyDown={this.handleKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-label={`Vocal ${this.props.id}`}
         className={`content-menu-item ${this.props.className}`}
       >
         <img
           src={this.props.vowel}
           className={`yoxi-vowel-${this.props.size}`}
-          alt={this.props.vowel}
+          alt={`Vocal ${this.props.id}`}
         />
-
-        <audio id={this.props.id} name={this.props.id}>
-          <source src={this.props.vowelSound} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-
-        <audio id="win" name="win">
-          <source src={Win} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-        <audio id="fail" name="fail">
-          <source src={Fail} type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
       </div>
     );
   }
