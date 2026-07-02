@@ -1,6 +1,13 @@
+/* ==========================================================================
+   Botón Siguiente - responsive
+   ========================================================================== */
 
 .arrowNext {
-    width: 120px;
-    min-height: 4rem;
-    transition: width 2s;
-  }
+  width: clamp(70px, 10vw, 120px);
+  min-height: 4rem;
+  transition: transform var(--transition-fast);
+}
+
+.arrowNext:hover {
+  transform: scale(1.08);
+}

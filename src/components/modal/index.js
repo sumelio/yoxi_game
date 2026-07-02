@@ -13,9 +13,14 @@ class Modal extends Component {
       >
         {close => (
           <div className="modal">
-            <a className="close" onClick={close}>
+            <button
+              type="button"
+              className="close"
+              onClick={close}
+              aria-label="Cerrar"
+            >
               &times;
-            </a>
+            </button>
             {this.props.children}
           </div>
         )}

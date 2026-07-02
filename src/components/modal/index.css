@@ -1,19 +1,12 @@
-.stuff-image {
-  width: 10rem;
-  height: 10rem;
-  cursor: pointer;
-  margin: 0.5rem;
-  transition-duration: 1.5s
-}
+/* ==========================================================================
+   Modal (reactjs-popup)
+   ========================================================================== */
 
-.stuff-image:hover {
-  width: 10.5rem;
-  height: 12rem;
-  cursor: pointer;
-}
 .modal {
   max-height: 80vh;
+  overflow-y: auto;
 }
+
 .modal > .close {
   cursor: pointer;
   position: absolute;

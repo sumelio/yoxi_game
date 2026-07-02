@@ -1,88 +1,99 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* ==========================================================================
+   Página Rima Rimando - responsive
+   ========================================================================== */
+
 .yoxi-vowel-start {
-  max-width: 10rem;
-  max-height: 10rem;
+  max-width: clamp(6rem, 15vw, 10rem);
+  max-height: clamp(6rem, 15vw, 10rem);
   cursor: pointer;
 }
 
 .yoxi-vowel-rhyme {
-  max-width: 10rem;
-  max-height: 10rem;
+  max-width: clamp(6rem, 15vw, 10rem);
+  max-height: clamp(6rem, 15vw, 10rem);
   cursor: pointer;
-  padding: 100px;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  padding: clamp(1rem, 6vw, 6rem);
 }
 
 .arrow-navigation {
-  width: 12vw;
-  height: 14vw;
+  width: clamp(60px, 12vw, 140px);
+  height: auto;
 }
 
 .vowel-start {
-  margin-top: 20px;
+  margin-top: var(--space-md);
 }
 
 .content-start-vowel-stauff {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   align-content: space-around;
-  padding: 10px;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
 }
+
 .content-start-vowel {
   display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: flex-start;
-  align-content: space-around;
-  padding: 20px;
-  width: 600PX;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
+  align-content: space-around;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  width: min(600px, 95vw);
   margin: auto;
 }
+
 .stuff-img {
-  width: 160px;
+  width: clamp(90px, 18vw, 160px);
   cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.stuff-img:hover {
+  transform: scale(1.06);
 }
 
 .content-rhyme {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  gap: var(--space-md);
 }
+
 .content-rhyme-item {
   display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
   align-content: stretch;
-  
-  padding-bottom: 60px;
+  padding-bottom: var(--space-lg);
 }
 
 .content-win {
   display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+}
+
+@media (max-width: 600px) {
+  .content-rhyme {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .content-rhyme-item {
+    padding-bottom: var(--space-md);
+  }
 }

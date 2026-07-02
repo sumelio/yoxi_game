@@ -4,7 +4,6 @@ import "./index.css";
 import Win from "../../assets/sound/win.mp3";
 import Fail from "../../assets/sound/fail.mp3";
 import FailImg from "../../assets//image/fail.png";
-import WinImg from "../../assets//image/win.png";
 import starsGif from "../../assets/image/stars.gif";
 
 class StuffAudio extends Component {

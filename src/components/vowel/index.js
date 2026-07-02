@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import UIfx from "uifx";
 import EnterAudio from "../../assets/sound/enter.mp3";
 import Win from "../../assets/sound/win.mp3";
-import starsGif from "../../assets/image/stars.gif";
 import Fail from "../../assets/sound/fail.mp3";
 
 import "./index.css";

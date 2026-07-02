@@ -1,29 +1,35 @@
-.vowel {
+/* ==========================================================================
+   Componente Vowel - responsive
+   Nota: las clases yoxi-vowel-100px / yoxi-vowel-200px se generan
+   dinámicamente desde la prop `size` (contrato del componente).
+   ========================================================================== */
 
- /* background: linear-gradient(#e66465, #ffff);  */
- background: linear-gradient(
-    #e66465,
-    #ffff
-  );
+.vowel {
+  background: linear-gradient(#e66465, #ffffff);
   font-size: 12px;
   width: 40px;
   height: 40px;
-  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-family: var(--font-family-base);
 }
+
 .yoxi-vowel-100px {
   cursor: pointer;
-  width: 100px;
-  height: 100px;
+  width: clamp(64px, 10vw, 100px);
+  height: clamp(64px, 10vw, 100px);
+  transition: transform var(--transition-fast);
 }
 
 .yoxi-vowel-100px:hover {
-  cursor: pointer;
-  width: 110px;
-  height: 110px;
+  transform: scale(1.1);
 }
 
 .yoxi-vowel-200px {
   cursor: pointer;
-  width: 200px;
-  height: 200px;
+  width: clamp(90px, 16vw, 200px);
+  height: clamp(90px, 16vw, 200px);
+  transition: transform var(--transition-fast);
+}
+
+.yoxi-vowel-200px:hover {
+  transform: scale(1.06);
 }

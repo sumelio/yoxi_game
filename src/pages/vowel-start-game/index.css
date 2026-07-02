@@ -1,47 +1,62 @@
+/* ==========================================================================
+   Página Juego Vocal Inicial - responsive
+   ========================================================================== */
 
 .vowel-start-game {
- background-color: white;  
- width: 80px;
- height: 80px;
- padding-right: 15px;
- padding-bottom: 15px;
+  background-color: var(--color-surface);
+  width: clamp(60px, 10vw, 90px);
+  height: clamp(60px, 10vw, 90px);
+  padding: 0 15px 15px 0;
+  border-radius: var(--radius-md);
 }
 
 .start-game-title {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: space-around;
-	align-items: center;
-    align-content: center;
-    padding-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-xs);
 }
 
 .yoxi-vowel-start-game {
-	max-width: 10rem;
-	max-height: 10rem;
-	cursor: pointer;
+  max-width: clamp(6rem, 14vw, 10rem);
+  max-height: clamp(6rem, 14vw, 10rem);
+  cursor: pointer;
 }
+
 .start-game-options {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: flex-start;
-	align-content: space-around;
-    padding: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: space-around;
+  gap: var(--space-md);
+  padding: var(--space-md);
 }
 
 .two {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  gap: var(--space-sm);
 }
 
+/* Imagen en escala de grises (opción incorrecta) */
 .filter {
-	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-	filter: grayscale(100%);
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+@media (max-width: 600px) {
+  .start-game-options {
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
 }

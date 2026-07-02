@@ -1,3 +1,7 @@
+/* ==========================================================================
+   YOXI Game - Layout Global
+   ========================================================================== */
+
 body {
   text-align: center;
   background-image: url('./assets/image/background.jpg');
@@ -11,61 +15,54 @@ body {
 .App {
   text-align: center;
   min-height: 100vh;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* Espacio para el footer fijo */
+  padding-bottom: 3.5rem;
 }
 
-.App-link {
-  color: #09d3ac;
+h1 {
+  font-size: var(--font-size-h1);
+  color: var(--color-text-light);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  margin: var(--space-sm) var(--space-md);
 }
 
-.button_radius {border-radius: 50%;}
-
-.button {
-  background-color: red; /* Green */
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
+/* Contenedor flexible principal (menús y filas de vocales) */
 .content-menu {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap-reverse;
-	justify-content: space-around;
-	align-items: stretch;
-	align-content: space-around;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
 }
 
-.top-20px {
-  margin-top: 400px;
+.content {
+  border-radius: var(--radius-md);
 }
 
+/* Footer */
 .footer-copyright {
-  margin-top: 30px;
-  background-color: deepskyblue;
   position: fixed;
   bottom: 0;
-  right: 0;
+  left: 0;
   width: 100%;
-  border: 3px solid black;
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+  border-top: 3px solid rgba(0, 0, 0, 0.8);
+  box-shadow: var(--shadow-soft);
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  z-index: 10;
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .content-menu {
+    gap: var(--space-sm);
+    padding: var(--space-xs);
+  }
 }

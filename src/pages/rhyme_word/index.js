@@ -17,7 +17,6 @@ import CheeseAudio from "../../assets/sound/cheese.mp3";
 import WolfAudio from "../../assets/sound/wolf.mp3";
 import WinAudio from "../../assets/sound/win.mp3";
 
-import ButtonNext from "../../components/button-next";
 import starsGif from "../../assets/image/stars.gif";
 
 class RhymeWord extends Component {

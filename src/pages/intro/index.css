@@ -1,47 +1,42 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.top-700px {
-  margin-top: 60px;
-}
-
+/* ==========================================================================
+   Página Intro - responsive
+   ========================================================================== */
 
 .yoxi-intro {
-  height: 20rem;
+  height: clamp(9rem, 30vh, 20rem);
+  width: auto;
   cursor: pointer;
+  transition: transform var(--transition-fast);
 }
 
-.yoxi-vowel {
-  width: 220px;
-  height: 220px;
-  transition: width 1s;
+.yoxi-intro:hover {
+  transform: scale(1.05);
 }
+
 .content {
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
+  border-radius: var(--radius-md);
 }
 
 .content-menu-item {
-  width: 120px;
-  height: 120px;
+  width: clamp(80px, 14vw, 140px);
+  height: clamp(80px, 14vw, 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.content-menu-item:hover img.arrowNext {
-  width: 120px;
-}
-
+/* Efecto hover sin alterar el layout */
+.content-menu-item:hover img.arrowNext,
 .content-menu-item:hover img.yoxi-vowel {
-  width: 125px;
+  transform: scale(1.08);
+}
+
+.content-menu-item img {
+  transition: transform var(--transition-fast);
+}
+
+@media (max-width: 600px) {
+  .yoxi-intro {
+    height: clamp(7rem, 22vh, 12rem);
+  }
 }

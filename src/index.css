@@ -1,11 +1,70 @@
-@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap');
+
+/* ==========================================================================
+   YOXI Game - Sistema de Diseño Global
+   ========================================================================== */
+
+:root {
+  /* Colores */
+  --color-primary: #4caf50;
+  --color-primary-dark: #388e3c;
+  --color-secondary: #00bfff;
+  --color-accent: #f77676;
+  --color-accent-dark: #ef4f4f;
+  --color-surface: rgba(255, 255, 255, 0.85);
+  --color-text: #333333;
+  --color-text-light: #ffffff;
+  --color-border: #cfdcec;
+
+  /* Tipografía */
+  --font-family-base: 'Century Gothic', 'Futura', 'Didact Gothic', sans-serif;
+  --font-size-h1: clamp(1.6rem, 4vw + 1rem, 3rem);
+  --font-size-body: clamp(1rem, 0.5vw + 0.9rem, 1.25rem);
+
+  /* Espaciado */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* Bordes y sombras */
+  --radius-md: 20px;
+  --radius-full: 50%;
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-strong: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+  /* Transiciones */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-slow: 1s ease;
+}
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
-  font-family:'Century Gothic','Futura','Didact Gothic',san-serif;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }

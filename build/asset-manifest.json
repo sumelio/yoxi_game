@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.113ecd1a.css",
-    "main.js": "/static/js/main.10b4b27b.js",
+    "main.css": "/static/css/main.23dfa0ab.css",
+    "main.js": "/static/js/main.a5756e7b.js",
     "static/media/intro.mp3": "/static/media/intro.f3066ffe7e21e198aaf3.mp3",
     "static/media/game-start-o.mp3": "/static/media/game-start-o.956603b749e7f6c1f38a.mp3",
     "static/media/game-start-e.mp3": "/static/media/game-start-e.c180a853d842b88a9170.mp3",
@@ -31,7 +31,6 @@
     "static/media/uniform.mp3": "/static/media/uniform.040d150511ac9691fe74.mp3",
     "static/media/arrow-next.png": "/static/media/arrow-next.9ceed0c060ff9cef289a.png",
     "static/media/bee.png": "/static/media/bee.21bf7d2ec05a1114df2c.png",
-    "static/media/win.png": "/static/media/win.af931ae5240f9e62f745.png",
     "static/media/igloo.png": "/static/media/igloo.3272279595c0f9e3fa20.png",
     "static/media/bear.png": "/static/media/bear.07cf1a7b541136fcda95.png",
     "static/media/bone.png": "/static/media/bone.09dab4b2c36111aa6420.png",
@@ -67,11 +66,11 @@
     "static/media/enter.mp3": "/static/media/enter.ba73d678ee2c41308184.mp3",
     "static/media/next.mp3": "/static/media/next.e9e75e69db266edfb7e6.mp3",
     "index.html": "/index.html",
-    "main.113ecd1a.css.map": "/static/css/main.113ecd1a.css.map",
-    "main.10b4b27b.js.map": "/static/js/main.10b4b27b.js.map"
+    "main.23dfa0ab.css.map": "/static/css/main.23dfa0ab.css.map",
+    "main.a5756e7b.js.map": "/static/js/main.a5756e7b.js.map"
   },
   "entrypoints": [
-    "static/css/main.113ecd1a.css",
-    "static/js/main.10b4b27b.js"
+    "static/css/main.23dfa0ab.css",
+    "static/js/main.a5756e7b.js"
   ]
 }
